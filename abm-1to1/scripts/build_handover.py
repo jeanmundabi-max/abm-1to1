@@ -306,7 +306,7 @@ FACET = {
  "urn:li:geo:101282230":"Germany", "urn:li:geo:100565514":"Netherlands",
 }
 def _funnel(run, amap):
-    """The funnel, in plain words. Jean, 2026-09-11: "we start with 20 and end up with 5, there
+    """The funnel, in plain words. The question this answers: "we start with 20 and end up with 5, there
     should be a place to explain that." Reads 00-inputs/candidates.csv (a verdict column: IN or
     BENCH: reason) and, if present, 00-inputs/FUNNEL.json {"shown": n, "note": "..."}. Invents
     nothing: a run without a candidates file gets no section."""

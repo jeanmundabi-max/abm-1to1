@@ -62,7 +62,7 @@ PAGE_RULES = [
                         "the next morning."),
  ("disclosure",      1, "The footer discloses what was inferred, away from the CTA."),
 ]
-# The vendor narrating itself. Jean, 2026-09-11: "nobody buys ElevenLabs from its own words."
+# The vendor narrating itself. Nobody buys a product from the vendor's own wall.
 # A page is written from the buyer's seat (sops/07b). These strings mean it was not.
 VENDOR_VOICE = [r"in [A-Z][A-Za-z']+ own words", r"own words", r"sells three things", r"Pricing is public",
                 r"The mechanism, in one sentence"]
@@ -75,7 +75,7 @@ OPTIONAL_FILES = [
                "decision recorded in SCORE.md, not an omission."),
  ("contact-sheet.png", "The fold, five film frames and the card on one picture, made by "
                "scripts/contact_sheet.py and SENT to the human before the next account is "
-               "built. Jean, 2026-09-11: a gate result is not a view of the creative."),
+               "built. A gate result is not a view of the creative."),
 ]
 
 def _respite(html):

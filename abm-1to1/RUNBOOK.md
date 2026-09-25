@@ -5,8 +5,6 @@
 > and `status.py` names them the same way. The word "leg" survives below because this file is
 > the engineer's map, not the script. Added 2026-09-23.
 
-_Part of the `abm-1to1` skill. The one-screen index is `SKILL.md`._
-
 This file exists because the expensive part of this play was never the work. It was not knowing,
 at the start, **where you would be interrupted and for how long**. Eight legs, six stop points.
 
@@ -77,7 +75,7 @@ name-only preview is **not** free. Asked every time, no exceptions.
 
 **Leg 7, the council.** Optional. Produces a written brief that records why the idea won.
 
-**Leg 8, the budget.** Ivan's Phase 0 is explicit: ask, never default. A figure is set so the ad
+**Leg 8, the budget.** The upstream kit's Phase 0 is explicit: ask, never default. A figure is set so the ad
 set is complete, and it stays a **placeholder** until the client confirms it. `status.py` says so
 until the config records the confirmation.
 
@@ -91,7 +89,7 @@ terminal: the stop exists so that they DECIDE, not so that they type. If a permi
 blocks the write after the yes, the fix is a permission rule in settings, written by the operator
 and said out loud, not a "run these two, in order".
 
-Added 2026-09-11 after the ElevenLabs run, where the DRAFT push was blocked twice and the operator
+Added after the ElevenLabs run, where the DRAFT push was blocked twice and the operator
 answered by pasting the commands. Jean: *"you shouldn't ask me to do it... have a box, and ask me
 a question about it. If I say yes, you go on with it."*
 

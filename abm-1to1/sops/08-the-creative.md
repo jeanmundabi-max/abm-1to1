@@ -1,7 +1,5 @@
 # The creative
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 ## Step 10. The creative
 
 **Build the card as HTML and screenshot it at 1200x1200.** One `build.py` in the run's
@@ -10,7 +8,7 @@ account's own visual world. It is deterministic, it costs nothing, it re-renders
 second when a number changes, and it is what the Serval and ElevenLabs sets were built
 with. The Serval file is the reference shape.
 
-The account's own name and mark on the card is the entire point. Ivan reports 5-10x CTR
+The account's own name and mark on the card is the entire point. The upstream kit reports 5-10x CTR
 from that personalisation, and that figure is his, so attribute it if you repeat it.
 
 **The image-model route is an option, not the default.** It costs money, it cannot be
@@ -50,7 +48,7 @@ ad says one thing and the page opens with another, the click is wasted however g
 are. Write the match into a table before shipping.
 
 **Iteration versus Big Swing.** Iterate on what is winning, Big-Swing for discovery. Ten
-near-identical variants teach nothing. Ivan's rule is one *idea* per ad; Alisha's is one
+near-identical variants teach nothing. The upstream kit's rule is one *idea* per ad; Alisha's is one
 *format* per ad. Both, every time.
 
 ### Guardrail
@@ -92,7 +90,7 @@ council on the card before the first push.**
 
 ### Open the copy library before writing copy
 
-`knowledge-base/ad-copywriting.md` sits in this skill, and it was not opened.
+[the upstream ad-copywriting guide](https://github.com/swan-gtm/gtm-skills/blob/main/skills/ivan-falco/ad-copywriting/SKILL.md) is one click away, and it was not opened.
 Two of its rules decide whether an ad reads flat:
 
 - **Step 3, choose one of the six headline formulas.** Feeling, Conversation, Contrast, Shame,
@@ -127,7 +125,7 @@ element, the **target owns the top left** and the client owns the foot.
 | Failure, really happened | Fix |
 |---|---|
 | Three rounds of ad creative rejected as flat. The creative council had been run on the film and never on the card | Run the council on the CARD, before the first push |
-| Ad copy written without opening `knowledge-base/ad-copywriting.md`, so none of the six headline formulas was chosen | Open it first. One formula per ad, named in the brief |
+| Ad copy written without opening [the upstream ad-copywriting guide](https://github.com/swan-gtm/gtm-skills/blob/main/skills/ivan-falco/ad-copywriting/SKILL.md), so none of the six headline formulas was chosen | Open it first. One formula per ad, named in the brief |
 | The card carried the account's whole quoted sentence in grey. It reads as a citation and fails the standalone scroll test | Write the image text first and test it with no body copy |
 | The brand colour was used as a background wash, so the card could have been an ad for anything | The colour carries the meaning, inside the target's visual world |
 | Three creatives ended up on every ad set, and none can be removed | The image is a create-only field and an unreviewed creative cannot be paused. Every revision after the first push is permanent clutter |
@@ -143,7 +141,7 @@ and it asks for nothing.
 - **The body copy carries the offer**: what they send, what comes back, how long, and what it
   costs. Two or three sentences, which is what `atl-btl-messaging` allows a C-level reader.
 - **The headline field carries neither.** It does not repeat the image, per
-  `knowledge-base/ad-copywriting.md` step 6, and it should differ per account.
+  [the upstream ad-copywriting guide](https://github.com/swan-gtm/gtm-skills/blob/main/skills/ivan-falco/ad-copywriting/SKILL.md), step 6, and it should differ per account.
 - **Run `offer-temperature-check` on the ad as written**, not only on the page. An ad whose
   body copy asks for a meeting has quietly reintroduced the warm ask the page removed.
 
@@ -159,7 +157,7 @@ without a human CONFIRM DELETE. `../knowledge-base/linkedin-api-gotchas.md`.
 
 ## The body copy must not repeat the card
 
-Added 2026-09-08, after the operator said the hook felt "very, very insufficient" and could not
+Added after the hook was judged insufficient and could not
 say why. The reason was mechanical, not literary.
 
 The Hays card carried, in grey under its headline: *"Hays call currency a significant Group
@@ -167,7 +165,7 @@ sensitivity. One cent on the euro is about £3.9m of net fees."* The body copy o
 *"Your report calls currency a significant Group sensitivity and puts each 1 cent on the euro at
 about £3.9 million of net fees."*
 
-**The same sentence, twice, two seconds apart, on one screen.** This is Ivan Falco's step 6 and
+**The same sentence, twice, two seconds apart, on one screen.** This is the upstream kit's step 6 and
 it is easy to violate because the card and the copy are written in different sittings and never
 read side by side.
 

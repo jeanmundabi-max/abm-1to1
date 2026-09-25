@@ -86,7 +86,7 @@ defines the folder shape.
 | 7 | Build the page, and the hero film in its first viewport | `scripts/build_page.py`, `scripts/build_vsl.py`, `scripts/vsl_render.js`, `scripts/vsl_motion_qa.js`, `scripts/patch_vsl_recut.py`, `scripts/qa_video_fold.py`, `scripts/publish_page.py` | **`sops/07b-the-page-from-the-buyers-seat.md` first**, then `sops/07-the-page-and-hero-film.md`, `knowledge-base/hero-film-format.md` |
 | 7a | **Show it.** One picture per account, the fold, five film frames, the card, and it goes to the human before the next account is built. A gate result is not a view | `scripts/contact_sheet.py <build dir> --card <png>`, then SendUserFile | `sops/07b-the-page-from-the-buyers-seat.md`, last section |
 | 7b | Decide which tool makes the moving picture and the page. **`scroll-craft` is a fourth tool and it OWNS the page: it will not restyle a generated one** | `npx hyperframes capture`, `scroll-craft` | `knowledge-base/pages-films-and-broll.md` |
-| 8 | Write the creative. One idea and one format per ad. **Run the creative council on the CARD before the first push, not on the film alone** | `creative-council` skill, then build the card as HTML and screenshot it: `<run>/03-creative/cards/build.py`, one object per account | **`sops/08b-hooks.md` first**, then `sops/08-the-creative.md`, `knowledge-base/ad-copywriting.md` |
+| 8 | Write the creative. One idea and one format per ad. **Run the creative council on the CARD before the first push, not on the film alone** | `creative-council` skill, then build the card as HTML and screenshot it: `<run>/03-creative/cards/build.py`, one object per account | **`sops/08b-hooks.md` first**, then `sops/08-the-creative.md`, [the upstream ad-copywriting guide](https://github.com/swan-gtm/gtm-skills/blob/main/skills/ivan-falco/ad-copywriting/SKILL.md) |
 | 9 | Build the campaign to DRAFT, then QA the real ad preview. **Read `knowledge-base/linkedin-api-gotchas.md` first: four traps, each of which cost a build** | `scripts/build_campaign.py` (runs `scripts/ad_account_guard.py` itself) | `sops/09-build-qa-and-preview.md`, `knowledge-base/linkedin-api-gotchas.md` |
 | 9a | **Les deux liens, jamais un seul.** L'apercu du fil (construit depuis les URN de l'API) ET Campaign Manager (compte, groupe en parametre, reglages, annonces). Dans `PREVIEWS.txt`, `account_map.json`, la remise, et une page cliquable `OUVRIR-LES-BROUILLONS.html` | `05-campaign/finish.py` | `sops/09-build-qa-and-preview.md`, derniere section |
 | 9b | Say what stages two and three are, and hand the client the map. **The handover's sections 01 and 02 are the PLAY's argument: supply `00-inputs/handover_evidence.py` with `sections(ctx)` and `PHRASES`. With no module the WYN text renders unchanged** | `scripts/build_handover.py` | `knowledge-base/funnel-stages-and-orchestration.md` |
@@ -143,7 +143,7 @@ travels. This gate is the part that travels.
 - **The objective is a FUNNEL-STAGE choice, and cold means ENGAGEMENT.** Never
   `WEBSITE_VISIT` on an account that has never heard of the client: you pay for a landing-page
   click before there is any intent. Traffic and conversion objectives belong to the WARM stage,
-  after the retargeting pool exists. `knowledge-base/linkedin-ads-abm-guide.md`.
+  after the retargeting pool exists. [the upstream LinkedIn ABM guide](https://github.com/swan-gtm/gtm-skills/blob/main/skills/ivan-falco/linkedin-ads-abm-guide/SKILL.md).
 - **`locale` is the member's INTERFACE LANGUAGE, not the audience's country, and it must stay `en_US`.** LinkedIn injects this field into `targetingCriteria` server-side as `interfaceLocales` and then validates it: `{"country":"GB"}` returns HTTP 400 `INVALID_INTERFACE_LOCALE_CODE`. The audience's country is already carried by `profileLocations`. Verified live 2026-09-02 after it failed 3 of 3 ad sets. The earlier wording of this line, "set locale to the audience's country", is what caused that.
 - **The name IS the report.** Ad set: `[Client] - [Region] - [Stage] - [Awareness] - [Type] -
   {Account}`. Without the stage in the name, cold and warm collide the moment stage 2 exists and
@@ -168,7 +168,7 @@ travels. This gate is the part that travels.
   disclosing the inference in the footer and the handover, never on the call to action.
 - **Something on the page has to receive the yes**, in the first viewport, matching the words on
   the button. A call to action that links to the client's homepage does not do what it says.
-- **Open `knowledge-base/ad-copywriting.md` BEFORE writing a single line of ad copy**, and choose one of
+- **Open [the upstream ad-copywriting guide](https://github.com/swan-gtm/gtm-skills/blob/main/skills/ivan-falco/ad-copywriting/SKILL.md) BEFORE writing a single line of ad copy**, and choose one of
   its six headline formulas per ad. Copy written without a formula reads flat, and flat was the
   exact word used. Write the image text FIRST and test it standalone: would this stop the scroll
   with no body copy.
@@ -182,7 +182,7 @@ travels. This gate is the part that travels.
 
 ---
 
-> Built on Ivan Falco's 1:1 ABM kit. What this adds, and what broke in the transfer, is in
+> Built on the upstream 1:1 ABM kit. What this adds, and what broke in the transfer, is in
 > `sops/00-preflight-and-rules.md` and `knowledge-base/what-did-not-transfer.md`.
 >
 > _Strategy & GTM research by Jean Mundabi Fala_

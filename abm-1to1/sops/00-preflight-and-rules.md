@@ -1,17 +1,15 @@
 # Preflight, and the rules that never bend
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
+## What this skill adds to the upstream kit
 
-## What this skill adds to Ivan's kit
-
-Ivan's kit assumes two things that do not exist at the start of a real engagement.
+The upstream kit assumes two things that do not exist at the start of a real engagement.
 His README prerequisite 5 says it plainly: *"A landing page per account… you build
 these separately; the pipeline just needs the URLs."* And his Step 1 starts from an
 account list somebody already wrote.
 
 So this skill supplies the front and the back that his kit does not:
 
-| Missing in Ivan's kit | Supplied here |
+| Missing in the upstream kit | Supplied here |
 |---|---|
 | Any onboarding or client intake | **Step 1** |
 | Any way to decide which accounts belong | **Step 3**, gates derived from Step 1 |
@@ -19,7 +17,7 @@ So this skill supplies the front and the back that his kit does not:
 | A demonstrable output | **Step 13**, the walkthrough |
 | A loop that stops mistakes repeating | **Step 14**, three ledgers |
 
-Everything between Step 4 and Step 12 is Ivan's, wrapped.
+Everything between Step 4 and Step 12 is the upstream kit's, wrapped.
 
 ---
 
@@ -30,7 +28,7 @@ Everything between Step 4 and Step 12 is Ivan's, wrapped.
 - **Everything DRAFT.** Never create ACTIVE. Never delete via API without a fresh
   human "CONFIRM DELETE".
 - **Never fabricate.** Every word on the ad traces to a line on the landing page or
-  to something the account published. This is Ivan's rule and Jean's Observability
+  to something the account published. This is the upstream kit's rule and the Observability
   Law saying the same thing.
 - **Never sell an absence.** Not "they have no system", sell the screen you
   actually ran.
@@ -42,7 +40,7 @@ Everything between Step 4 and Step 12 is Ivan's, wrapped.
   Check the account's geo before setting the ad set's.
 - **Secrets only in `~/.config/abm-1to1/secrets.env`.**
 - Copy: no em-dashes, no spaced hyphens, grade ~5, en-GB.
-- **Every step carries a guardrail block.** Format is Ivan's: a failure that really
+- **Every step carries a guardrail block.** The format is the upstream kit's: a failure that really
   happened, then the fix. Never a theoretical risk. If a step has no guardrail
   block, no one has run it yet, and that is worth saying out loud.
 

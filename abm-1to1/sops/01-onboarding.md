@@ -1,7 +1,5 @@
 # Onboarding the client
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 **Read `../knowledge-base/what-abm-is.md` first if you have not.** You cannot run an intake
 for a play you cannot describe.
 
@@ -220,7 +218,7 @@ None of these can be researched. All six must be answered before anything is bui
 3. **Which ad account, and which LinkedIn page?** Sets the org URN, the account guard and
    the geo restrictions.
 4. **Is there a budget, and is activation on the table at all?** **Never default a budget.**
-   Ivan's own recorded failure: *"Assumed the daily budget. FIX: Phase 0, ask, never
+   The upstream kit's own recorded failure: *"Assumed the daily budget. FIX: Phase 0, ask, never
    default."*
 5. **Have you applied for LinkedIn Marketing API access yet?** Not *do you have it*, but
    **have you applied**. See below.
@@ -275,7 +273,7 @@ So offer it at intake, plainly, as an option and not as an upsell:
 > *"The same list that aims the ads can carry an email to the same named people. Do you
 > want the second channel, or ads only?"*
 
-**Why it is worth doing, and it is not a preference.** Ivan's own funnel puts **seven to
+**Why it is worth doing, and it is not a preference.** The upstream kit's own funnel puts **seven to
 ten touches across channels** before a sales conversation, and has sales moving **within 48
 hours of an engagement spike**. An ad-only play delivers the top of the funnel and stops.
 The email is not a parallel campaign; **it is the touch that lands on someone who has
@@ -364,7 +362,7 @@ never arrive.
 | Copy written from my own hypotheses about the payer. Four of five wrong | Output 3 is mandatory and the Mind-Reader Survey verifies it |
 | A client stat truncated by regex. "3.6% to 0" was really "3.6% to 0.48%". It shipped on five live pages | Output 4: quote the whole sentence, never a capture |
 | Logo scraped by a largest-element heuristic. It returned a **Feefo review badge** for one account and a yellow **"NEW" flash** for another | Output 6: open the PNG and look at it. A wrong logo is worse than no logo |
-| Budget assumed | Question D4. Ivan's failure, recorded in his own SOP, not mine |
+| Budget assumed | Question D4. The upstream kit records this failure in its own SOP, not mine |
 | API access treated as a build-day task rather than a multi-week lead time | Question D5, at intake. Ask whether they have **applied**, not whether they have it |
 | The intake run as a form. Thin answers, three days of follow-ups, and the first experience of working together was friction | Run it as a call. The client does less work and articulates the targeting, the offer and the copy angles themselves |
 | A plausible precedent treated as intent. A funding round is not a decision to buy your thing | The trigger must BE the intent, never a demographic proxy. If it does not answer yes or no in sixty seconds, it is a guess |

@@ -1,8 +1,8 @@
 # The page, written from the buyer's seat
 
-_Part of the `abm-1to1` skill. Read with `07-the-page-and-hero-film.md`, which holds the
-build mechanics. This file holds the SHAPE and the VOICE, and it overrides anything in 07
-that contradicts it. Added 2026-09-11 from Jean's review of the ElevenLabs dry run._
+_Read with `07-the-page-and-hero-film.md`, which holds the build mechanics. This file holds
+the SHAPE and the VOICE, and it overrides anything in 07 that contradicts it. Added after the
+ElevenLabs review._
 
 ## The one rule
 

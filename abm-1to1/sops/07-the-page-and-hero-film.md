@@ -1,15 +1,13 @@
 # The page, and the hero film in its first viewport
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 ## Step 9. The page
 
-Ivan's kit takes a URL and does not build the page. This is that gap, and the page
+The upstream kit takes a URL and does not build the page. This is that gap, and the page
 is different in each layer. **Decide the layer before writing a word.**
 
 ### Layer 1 page. MDB pitching the client.
 
-Shape follows Ivan's worked pattern, *"5 GTM plays, built for {Company}"*, not the
+Shape follows the upstream kit's worked pattern, *"5 GTM plays, built for {Company}"*, not the
 15-section acquisition mockup. It is the substance layer: the real plays, the proof,
 one booking CTA. MDB's voice, MDB's credit, MDB's ask.
 
@@ -17,7 +15,7 @@ one booking CTA. MDB's voice, MDB's credit, MDB's ask.
 
 This is the one the GoCardless build got structurally right and nearly wrote wrong.
 
-- **Their brand, their product names, their proof, their CTA.** Jean's credit is one
+- **Their brand, their product names, their proof, their CTA.** Your credit is one
   footer line.
 - **It promotes the client's own products**, selected by the signal found at that
   account in Step 8. GoCardless sells Success+ and Pay by Bank; which of the two
@@ -71,7 +69,7 @@ in `VSL-CREATIVE-BRIEF.md`, which is the durable artefact.
 
 | Failure, really happened | Fix |
 |---|---|
-| Five pages built as diagnoses. Jean's verdict: not saleable. The framework says why: a diagnosis is a warm offer wearing a number | Name the fix and the product, not just the problem |
+| Five pages built as diagnoses. The verdict: not saleable. The framework says why: a diagnosis is a warm offer wearing a number | Name the fix and the product, not just the problem |
 | A misquoted client stat shipped on all five live pages | Step 1 output 4 |
 | Pages built before the accounts were screened. Two later failed gate 4 | Step 3 before Step 9 |
 | The layer 2 pages carried the client's brand while the ads posted from MDB's page | Step 2. Demo: say it in the walkthrough. Live: fix the advertiser identity |

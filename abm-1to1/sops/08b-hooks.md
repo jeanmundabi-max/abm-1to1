@@ -1,8 +1,8 @@
 # Hooks: how the card and the first line are found
 
-_Part of the `abm-1to1` skill. Read before `08-the-creative.md` and before the council is
-briefed. Added 2026-09-11 from Jean's review of the ElevenLabs dry run: "the hook can be
-better, similar to what you did for Revolut. You should have a copywriting hooks SOP."_
+_Read before `08-the-creative.md` and before the council is briefed. Added after the
+ElevenLabs review, where the hooks came out weaker than the Revolut set and nothing in the
+skill said how a hook is found._
 
 ## The standard
 
@@ -43,9 +43,9 @@ reads a word. That recognition is what stops the scroll; the number is what earn
 3. **Put the client's colour on the one element that carries the meaning.** On the wallboard,
    every tile is grey except one, in the client's colour, that reads what changes. Never the
    background, never the number itself.
-4. **The number is the biggest thing on the card.** Ivan: the headline IS the creative. Here
+4. **The number is the biggest thing on the card.** The upstream kit: the headline IS the creative. Here
    the number is the headline.
-5. **Choose the line with one of Ivan's six formulas** (Feeling, Conversation, Contrast, Shame,
+5. **Choose the line with one of the six headline formulas** (Feeling, Conversation, Contrast, Shame,
    Stat Interrupt, Pain + Outcome) and keep it to one short line. It sits under the image, not
    on it.
 6. **The standalone test.** Cover the copy. Does the picture alone stop a scroll and say who it

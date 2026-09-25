@@ -1,13 +1,11 @@
 # Build to DRAFT, then QA the preview
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 ## Step 10b. Decide three fields BEFORE you build. All three were got wrong once.
 
 ### The objective is a funnel stage, not a consequence of having a landing page
 
 A 1:1 ABM account that has never heard of the client is **cold**, whatever else is true.
-Cold gets `ENGAGEMENT`. `knowledge-base/linkedin-ads-abm-guide.md`:
+Cold gets `ENGAGEMENT`. [the upstream LinkedIn ABM guide](https://github.com/swan-gtm/gtm-skills/blob/main/skills/ivan-falco/linkedin-ads-abm-guide/SKILL.md):
 
 > *"To warm up a cold audience, use an engagement objective, not a website-visits objective...
 > you optimize (and pay) for a landing-page click before the account has any intent, so you burn
@@ -31,7 +29,7 @@ group  : [Shared intent]
 
 Without the stage in the ad set name, cold and warm collide the day stage two exists and no report
 can separate them. The **group** carries the shared intent rather than the client's initials, and
-that is mechanical rather than tidy. Ivan:
+that is mechanical rather than tidy. The upstream kit:
 
 > *"Group by shared intent rather than persona... more engagements roll up at campaign-group level,
 > easier to hit LinkedIn's 3-engagement minimum for API data."*
@@ -42,7 +40,7 @@ engagement over **30 or 90 days, never 7**.
 
 ### `locale` is the audience's country
 
-Ivan's config default is `en_US` with a note to adjust per client. A UK-only audience takes
+The upstream kit's config default is `en_US` with a note to adjust per client. A UK-only audience takes
 `{"country":"GB","language":"en"}`. Nobody notices this one until a client does.
 
 ### If you rename any of the three later, three files move together
@@ -78,7 +76,7 @@ Easy to forget and mandatory: attach active **conversions** to every ad set, set
 **UTMs at ad-set level** (never baked into ad URLs), and build the single-image link
 ad as an **article** post or it loses its destination URL and CTA.
 
-### Guardrail, all of these are Ivan's, recorded from real builds
+### Guardrail, all of these are the upstream kit's, recorded from real builds
 
 | Failure | Fix |
 |---|---|
@@ -95,7 +93,7 @@ And one of ours:
 | **`adTrackingParameters` 500'd on every UTM attempt across three days, and I wrote on a client-facing page that it was LinkedIn's bug.** It was not | Five things, all mine. The path needs the **restli key** `(adEntity:(sponsoredCampaign:{enc urn}))`, not a bare URN; the field is **`customValueParameters`** / **`dynamicValueParameters`** and both are **maps, not arrays**; `idempotencyToken` is a **query parameter**, not a body field; and **`adEntity` must ALSO appear in the body** as `{"sponsoredCampaign": "<urn>"}`. With all five it returns 201 and GET-verifies 200. **Never attribute a failure to the vendor on a page a client will read** |
 | **The fix above was written here on 2026-09-08 and implemented nowhere.** Every build since 500'd on UTMs and the row was read as history rather than as a bug | Implemented in `set_utms()` on 2026-09-24, with `--utms-only` so a repair does not rebuild ad sets. **An instruction is not a mechanism.** When a guardrail row names a code fix, the row is not done until the code carries it |
 | **All 7 ad sets 400'd: `Value USD of /Campaign/dailyBudget/currencyCode expected to match value GBP of /Account/currency`** | The ad account is **GBP**. The config said USD and the dry run cannot catch it, because Phase 1 only resolves and sizes. **Read the account's `currency` field before writing a budget**, and note the campaign group is created in Phase 2 *before* the first ad set fails, so a currency error leaves an orphan DRAFT group. Put its id in `existing_group_id` and re-run rather than making a second |
-| **The image upload PUT returns 400 with only an `Authorization` header.** Ivan's `upload_image()` sends exactly that, so the step fails on his own script | The signed upload URL needs **`Content-Type: application/octet-stream`** on the PUT. With it, 201. Do not edit his script, wrap it |
+| **The image upload PUT returns 400 with only an `Authorization` header.** The upstream `upload_image()` sends exactly that, so the step fails on the upstream script | The signed upload URL needs **`Content-Type: application/octet-stream`** on the PUT. With it, 201. Do not edit the upstream script, wrap it |
 | **A post's `content` is immutable too.** After a repo rename every ad destination was dead, and `content.article.source` refused every patch shape: nested restli, `$set` on the leaf, `$set` on the whole object, all **422** | Only the **top-level `contentLandingPage`** takes a `PARTIAL_UPDATE` (204). If the article's own source is what carries the click, the post must be **rebuilt**, not patched. Establish which one the ad actually uses **on the rendered preview** before rebuilding anything, because `GET /posts` is 403 on this token and there is no other way to know |
 | Tried to repoint an existing creative at a new post | **A creative's `content.reference` is immutable.** Create a new creative on the ad set instead |
 | Tried to pause the superseded creative | Refused: *"status transition is not allowed from ACTIVE to PAUSED if reviewStatus is not set to APPROVED"*. On a DRAFT ad set nothing has been reviewed, so both creatives sit ACTIVE. **Nothing serves while the ad set is DRAFT**, but say so out loud and resolve it before any activation |
@@ -127,8 +125,8 @@ Then stop. State what activation would cost and hand the decision to the human.
 |---|---|
 | Preview treated as a QA note and never opened | Open it, screenshot it, it is deliverable |
 | No conversions exist on the ad account, so none were attached | Say it out loud. It needs the Insight Tag on a site we control. Not a blocker for DRAFT, but never skip it silently |
-| Skipped conversions because the objective was ENGAGEMENT | Ivan's SOP: *"Engagement-objective campaigns still get conversions - do not skip."* And note his method is to **replicate an active campaign's conversion set**. On an account with no active campaign there is nothing to replicate, so name that as the reason instead of leaving the phase blank |
-| Claimed Phase 6's verify gate passed | `GET /posts/{urn}` returns **403** on a token holding `w_organization_social` without `r_organization_social`. The gate cannot pass by Ivan's method on this token. Close it on the **rendered preview** instead, and say which route was used |
+| Skipped conversions because the objective was ENGAGEMENT | The upstream kit's SOP: *"Engagement-objective campaigns still get conversions - do not skip."* And note his method is to **replicate an active campaign's conversion set**. On an account with no active campaign there is nothing to replicate, so name that as the reason instead of leaving the phase blank |
+| Claimed Phase 6's verify gate passed | `GET /posts/{urn}` returns **403** on a token holding `w_organization_social` without `r_organization_social`. The gate cannot pass by the upstream method on this token. Close it on the **rendered preview** instead, and say which route was used |
 
 ---
 

@@ -1,7 +1,5 @@
 # Four LinkedIn API traps, each of which cost a build
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 All four found live on the Revolut run, 2 and 3 September 2026. They were only in the
 operator's private notes, which means they did not travel with the skill. They do now.
 

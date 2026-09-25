@@ -3,7 +3,7 @@
 `SKILL.md` is the one-screen index. This is the walkthrough: what a run actually looks
 like, in order, with the commands.
 
-Built on [Ivan Falco's 1:1 ABM kit](https://github.com/ivangfalco/curated-abm-skills),
+Built on the [upstream 1:1 ABM kit](https://github.com/swan-gtm/gtm-skills),
 MIT licensed. **The parts this skill uses are vendored into it**, so it clones and runs
 with nothing else on disk. `NOTICE` lists exactly which files came from there and what
 was changed.

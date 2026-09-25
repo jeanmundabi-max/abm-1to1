@@ -3,7 +3,7 @@
 Read this before the first client conversation. It is the difference between running the
 play and describing it.
 
-Sourced from Ivan Falco's `curated-abm-skills`, specifically `sops/01-abm-strategy.md` and
+Sourced from the upstream kit, specifically `sops/01-abm-strategy.md` and
 `account-targeting/account-selection-framework.md`, with what the GoCardless run added.
 
 ## ABM is a reach problem, not a targeting problem
@@ -34,7 +34,7 @@ are segmented by headcount, industry, geography or deal stage rather than run as
 **This skill is 1:1 only.** One named company per ad set, `employers = {that company}`, one
 page built for that account and nothing else. For 1:few or 1:many, use `abm-playbook`.
 
-The reason 1:1 justifies the effort is the gap in performance. Ivan's recorded figures for
+The reason 1:1 justifies the effort is the gap in performance. The upstream kit's recorded figures for
 hyper-personalised 1:1 creative are roughly **5 to 10% CTR against 0.5 to 1% for standard
 creative**, a five to ten times difference. That is what pays for building a page per
 account.
@@ -70,7 +70,7 @@ showing the top of the funnel, and it should say so rather than implying a syste
 
 ## Fatigue, and the answer to "how many creatives"
 
-Ivan's strategy SOP **does not mandate a creative count.** It mandates rotation *when
+The upstream kit's strategy SOP **does not mandate a creative count.** It mandates rotation *when
 frequency climbs*:
 
 - Rotate the creative to reset relevance without growing the audience, **or**
@@ -96,7 +96,7 @@ Four layers, and this skill's derived gates are a fifth that sits on top:
 4. **Lookalike** — the shared attributes of the best current customers
 
 Sizing runs backwards from revenue: target ARR ÷ ACV, then back through stage conversion.
-Ivan's worked example is **$1M ARR at $50K ACV needing roughly 3,250 target accounts**.
+The upstream kit's worked example is **$1M ARR at $50K ACV needing roughly 3,250 target accounts**.
 
 **What this skill adds is layer 5: gates derived from what the client sells**, so the list
 can be built when the client has no CRM to mine and no list to hand over. See

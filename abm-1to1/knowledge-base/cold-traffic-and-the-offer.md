@@ -1,7 +1,5 @@
 # Cold traffic, and the offer this play forgot it needed
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 **Read this before writing a single line of page or ad copy.**
 
 ---
@@ -151,7 +149,7 @@ half its readers they are not doing their job.
 1. **This file.** Is the offer cold at all?
 2. `offer-temperature-check` skill. Layer 1 the offer, Layer 2 the framing. **Layer 1 is binary
    and if it fails, stop. Do not evaluate the copy.**
-3. `knowledge-base/ad-copywriting.md`. Now that there is something to say, how to say it on a card.
+3. [the upstream ad-copywriting guide](https://github.com/swan-gtm/gtm-skills/blob/main/skills/ivan-falco/ad-copywriting/SKILL.md). Now that there is something to say, how to say it on a card.
 4. `cold-email-grader`, if the second channel is running.
 
 **Never grade copy quality on an offer that has not passed Layer 1.** That is the mistake this

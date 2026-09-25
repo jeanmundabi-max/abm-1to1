@@ -1,7 +1,5 @@
 # The two layers, and building the account list
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 ## Step 2. The two layers. Everything downstream depends on this.
 
 | | Layer 1 | Layer 2 |
@@ -14,7 +12,7 @@ _Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
 | Who signs off the copy | Jean | the client |
 
 **The trap.** On the GoCardless build, layer 2 ad sets posted from MDB Growth
-Capital's page, with commentary in Jean's first person, landing on pages branded as
+Capital's page, with commentary in our own first person, landing on pages branded as
 GoCardless's. If those ever ran, a Gym Group employee would see MDB's name on the ad
 and GoCardless's brand on the page.
 
@@ -40,7 +38,7 @@ client supplies it or the page carries a clearly marked specimen slot.
 
 ## Step 3. Build the account list
 
-Ivan starts from a list. On a real engagement there is none. Build it from the four
+The upstream kit starts from a list. On a real engagement there is none. Build it from the four
 gates derived in Step 1d.
 
 ### The gates

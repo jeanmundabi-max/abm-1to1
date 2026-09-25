@@ -1,10 +1,8 @@
 # Funnel stages, retargeting, and the channels around the ads
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 This skill builds **stage one only**. That is a deliberate scope, not an omission, but it is only
 defensible if you can say what stages two and three are and hand the client the map. Everything
-below is read from Ivan's own files, named beside each claim.
+below is read from the upstream kit's own files, named beside each claim.
 
 ## The three stages, and why the order is not negotiable
 
@@ -83,7 +81,7 @@ needs connecting. See `buying-committee-ladder.md`.
 > *"LinkedIn's API obfuscates engagement data if fewer than 3 members in an account engaged, or
 > fewer than 3 total engagements/clicks in a timeframe."*
 
-Ivan's claim, not independently verified against LinkedIn's documentation. If it holds it lands
+The upstream kit's claim, not independently verified against LinkedIn's documentation. If it holds it lands
 directly on 1:1 ABM, where every audience is small on purpose. His three mitigations, all free:
 group campaigns by **shared intent** so engagements roll up, read **30 or 90 day** windows rather
 than 7, and aggregate at group level. Say this to the client **before** launch, not when the first

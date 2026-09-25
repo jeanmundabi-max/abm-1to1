@@ -1,7 +1,5 @@
 # Getting a real logo into a generated ad
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 An image model asked for "the Chewy logo" draws something Chewy-shaped and wrong. On a 1:1
 ABM card the target's mark is the whole personalisation, so wrong is worse than absent.
 
@@ -44,4 +42,4 @@ new card that does not match the set.
 that drifted in generation reads to the buyer as a measurement of them. The Serval set had
 every fabricated counter stripped for exactly this reason (`../sops/08-the-creative.md`).
 
-Related: `../sops/08-the-creative.md`, `ad-copywriting.md`.
+Related: `../sops/08-the-creative.md`, and [the upstream ad-copywriting guide](https://github.com/swan-gtm/gtm-skills/blob/main/skills/ivan-falco/ad-copywriting/SKILL.md).

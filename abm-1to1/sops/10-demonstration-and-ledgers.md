@@ -1,7 +1,5 @@
 # The demonstration, and the three ledgers
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 ## Step 13. The demonstration
 
 The point of a demo build is not the campaign. It is the **proof that the whole
@@ -28,7 +26,7 @@ That is what makes the demonstration unarguable rather than one more screenshot.
 
 ### What Campaign Manager is genuinely needed for, and it is only two things
 
-Verified against Ivan's SOP 01. Name both in the walkthrough rather than overclaiming
+Verified against The upstream kit's SOP 01. Name both in the walkthrough rather than overclaiming
 that the API does everything.
 
 1. The **per-company engagement report** on a company list, under Audiences.
@@ -65,7 +63,7 @@ Close on the point: **nothing here was built in Campaign Manager.**
 ### Where it lands
 
 Everything in `~/abm-runs/<slug>/abm-1to1/`. Shipped deliverables mirror
-to `~/Clients/<slug>/`. Public versions to GitHub, with Ivan credited by name.
+to `~/Clients/<slug>/`. Public versions to GitHub, with the upstream kit credited in NOTICE.
 
 Every deliverable carries: _Strategy & GTM research by Jean Mundabi Fala_
 
@@ -80,7 +78,7 @@ lesson from running it for a different client. They have different homes.
 | **RUN LOG** | executing it for one client | `<slug>/abm-1to1/RUN-LOG.md`, one per engagement |
 | **TRANSFER** | changing client | the bottom of this file |
 
-Format is Ivan's in all three: **the failure that really happened, then the fix.**
+Format is the upstream kit's in all three: **the failure that really happened, then the fix.**
 Never a theoretical risk.
 
 ### Transfer ledger
@@ -126,7 +124,7 @@ on GitHub. Run it before every publish, not once.
 
 ## The handover carries the ARGUMENT, not just the settings
 
-Added 2026-09-08, on the operator's note that a client should never have to open Campaign
+Added because a client should never have to open Campaign
 Manager to understand what was decided.
 
 Campaign Manager shows what was set. It cannot show what else was on the table, or why this was

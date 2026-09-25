@@ -1,7 +1,5 @@
 # Size the audience and narrow it to the band
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 ## Step 6. Size and narrow
 
 ```bash
@@ -39,7 +37,7 @@ The printed narrowing walk is a **Step 13 deliverable**, not console noise. Save
 
 ### What LinkedIn itself says the minimums are
 
-Not Ivan's numbers. LinkedIn's own Marketing Solutions help pages, read 2026-08-20.
+Not the upstream kit's numbers. LinkedIn's own Marketing Solutions help pages, read 2026-08-20.
 
 | What | LinkedIn's words |
 |---|---|
@@ -132,7 +130,7 @@ Run it with `scripts/narrowing_walk.py`, which prints the number after each leve
 
 | Failure, really happened | Fix |
 |---|---|
-| Ivan's junior exclusion applied to none of six ad sets. Gousto was **36.4% entry-level** | Exclude {1,2,3} as standard, and measure the mix **after** the lever, not on the base |
+| The upstream kit's junior exclusion applied to none of six ad sets. Gousto was **36.4% entry-level** | Exclude {1,2,3} as standard, and measure the mix **after** the lever, not on the base |
 | Excluded juniors at an account already at the 300 floor and read the reported 0 as a real zero | That is LinkedIn's privacy floor. Back the lever off |
 | Accepted a `first_unverified` name match. David Lloyd resolved to `davidlloydamsterdam`, Saga to `sagagroupaus` | Eyeball every `first_unverified` row before trusting it |
 | 1,530 distributor Partners and Owners counted as addressable staff | Read the seniority mix. Exclude 9 and 10 when the network is not the buyer |

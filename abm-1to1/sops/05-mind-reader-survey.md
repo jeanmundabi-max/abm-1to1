@@ -1,7 +1,5 @@
 # The Mind-Reader Survey
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 ## Step 7. Mind-Reader Survey. MANDATORY. Never skip.
 
 **No creative or page copy is written before this step.** Added 2026-08-17 after

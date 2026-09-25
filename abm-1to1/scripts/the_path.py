@@ -8,8 +8,8 @@ Eight parts. For each: what happens, what you get, and where you are needed. Wri
 someone who has never opened Campaign Manager, so it can be read out on a recording as is.
 No house words: no leg, gate, rung, lever, EDP, URN.
 
-Added 2026-09-11 from Jean's review of the ElevenLabs dry run: "at the beginning, say this
-is the step we will be going through, and the expectations."
+Added after the ElevenLabs review: say which parts are coming, and what each one produces,
+before any of them starts.
 """
 import argparse
 

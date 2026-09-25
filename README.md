@@ -133,8 +133,9 @@ Neither needs a token, a key or an account.
 
 ---
 
-Built on [Ivan Falco's 1:1 ABM kit](https://github.com/swan-gtm/gtm-skills), MIT. What this adds
-and what broke in the transfer is in [`abm-1to1/NOTICE`](abm-1to1/NOTICE) and
-[`abm-1to1/knowledge-base/what-did-not-transfer.md`](abm-1to1/knowledge-base/what-did-not-transfer.md).
+One file, `scripts/build_campaign.py`, comes from the
+[upstream 1:1 ABM kit](https://github.com/swan-gtm/gtm-skills), MIT, Copyright (c) 2026 Swan.
+[`abm-1to1/NOTICE`](abm-1to1/NOTICE) says exactly how much of it is theirs and what was
+changed. Everything else in `scripts/` is original.
 
 _Strategy & GTM research by Jean Mundabi Fala_

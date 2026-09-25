@@ -1,27 +1,33 @@
-# Third-party code and documents vendored into this skill
+# Third-party code in this skill
 
-This skill is self-contained. It has no runtime dependency on any folder outside it.
+One file in this skill is not original work.
 
-The files below originate in Ivan Falco's `curated-abm-skills` kit
-(https://github.com/ivangfalco/curated-abm-skills), MIT licensed, and were copied in on
-2026-09-24 so that a published copy of this skill runs for anyone who clones it.
+    scripts/build_campaign.py
 
-    scripts/build_campaign.py        modified, see below
-    scripts/narrow_audience.py       modified, env path only
-    scripts/resolve_and_size.py      modified, env path only
-    knowledge-base/ad-copywriting.md          verbatim
-    knowledge-base/linkedin-ads-abm-guide.md  verbatim
+It originates in the 1:1 ABM kit published at **https://github.com/swan-gtm/gtm-skills**,
+**Copyright (c) 2026 Swan**, MIT licensed, under `skills/ivan-falco/1-to-1-abm-ads/`. It was
+copied in so that a published copy of this skill runs for anyone who clones it.
 
-Local modifications, all in this skill, none upstream:
+**Roughly 86% of that file is Swan's, unchanged.** All of the HTTP plumbing, the seven build
+phases, `upload_image()` and the argparse skeleton are theirs. What was changed here:
 
-  - All four scripts read `~/.config/abm-1to1/secrets.env` when no `.env` sits beside them.
-  - `build_campaign.py` treats a required config key that is present but null as missing,
-    and exits before Phase 1 instead of failing once per company at Phase 6.
-  - `build_campaign.py` calls `ad_account_guard.assert_writable()` before any write.
-  - `build_campaign.py` `upload_image()` sends no Authorization header on the pre-signed
-    PUT, and sets `Content-Type: image/png` (patched 2026-09-02).
+  - Secrets resolve from `~/.config/abm-1to1/secrets.env` when no `.env` sits beside the script.
+  - `set_utms()` rewritten for the restli key path, with the value parameters sent as maps
+    rather than an array, and an idempotency token on the query.
+  - A `--utms-only` mode, so tracking can be repaired without rebuilding a campaign.
+  - A required config key that is present but null is treated as missing, and the run exits
+    before Phase 1 instead of failing once per company at Phase 6.
+  - `ad_account_guard.assert_writable()` is called before any write, and a missing guard is a
+    hard exit rather than a warning.
+  - The ad preview URL is persisted rather than printed.
 
-`scripts/ad_account_guard.py` is not part of the upstream kit.
+Everything else in `scripts/` is original: `linkedin_api.py`, `resolve_and_size.py`,
+`narrow_audience.py`, `narrowing_walk.py`, `ad_account_guard.py`, `build_page.py`,
+`build_handover.py`, `page_standard.py` and the rest.
+
+Two documents from that kit were previously vendored here and have been removed, because
+redistributing someone else's writing inside a portfolio repository is the wrong default.
+The SOPs link to them at source instead.
 
 ---
 

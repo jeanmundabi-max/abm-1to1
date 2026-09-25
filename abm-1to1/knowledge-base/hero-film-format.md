@@ -128,7 +128,7 @@ beat 2.
 
 ## Pacing: one beat every four seconds
 
-**Recut 2026-09-07, after Jean watched the 32 second films at four beats.** Eight seconds
+**Recut 2026-09-07, after watching the 32 second films at four beats.** Eight seconds
 a beat reads as held frames. A silent film has no voice to carry a pause, so the reader
 finishes the line at about three seconds and then waits five. Four seconds is the shortest
 a line of this length can be read in and the longest it should hold.

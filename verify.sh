@@ -26,6 +26,9 @@ check "no personal file paths"    '/Users/|/home/[a-z]'
 check "no former-employer ad accounts" '504994684|506397648|506407296|508183416'
 check "no live campaign ids"      '\b557560141\b|\b1214533624\b|\b900[0-9]{6}\b|\b89613535\b|urn:li:(share|sponsoredCreative):[0-9]'
 check "no invented ticket ids"    'INC-[0-9]{4,}'
+# Nothing in this repo should be a verbatim copy of somebody else's writing. The two
+# knowledge-base documents that were were removed; this stops them coming back.
+check "no third-party bylines"    'By Ivan Falco'
 
 # Every example page still has to clear the quality gate and carry its disclosure.
 for d in examples/*/accounts/*/landing-page; do

@@ -1,7 +1,5 @@
 # Three tools make moving pictures here, and they do different jobs
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 Every claim below was run on 2026-09-02, not read off a README.
 
 ## Which one, for what

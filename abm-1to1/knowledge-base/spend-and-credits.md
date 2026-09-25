@@ -8,7 +8,7 @@ price list and the rule.
 
 **Ask before spending. Every time. Including small exploratory runs.**
 
-Jean, 2026-08-20, stated as absolute:
+Stated as absolute:
 
 > *"Ce que je ne veux pas, c'est que tu gaspilles mes crédits d'Ark. En aucun cas tu
 > dépenses des crédits d'Ark sans me demander."*

@@ -1,7 +1,5 @@
 # Climb the source ladder before you quote a number
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 ## Step 8. Climb the source ladder before you quote a number. MANDATORY.
 
 ### The principle, which is the part that travels

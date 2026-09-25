@@ -1,7 +1,5 @@
 # Verify the signal today, then name the buying committee
 
-_Part of the `abm-1to1` skill. The one-screen index is `../SKILL.md`._
-
 ## Step 4. Verify the signal, today
 
 **The corpus `posted_date` is when the scraper saw it on LinkedIn, not the true

@@ -4,7 +4,7 @@
     python3 contact_sheet.py <build dir> [--card <png>]      -> <build dir>/contact-sheet.png
 
 Left: the page fold at 1440x900. Right: five frames of the film (2s, 11s, 20s, 26s, 31s).
-Bottom: the ad card if given. Jean, 2026-09-11: "I didn't have any view of what the creative
+Bottom: the ad card if given. Added because there was no view of what the creative
 will be." A gate result is not a view. This is. Send the PNG (SendUserFile) before moving on.
 """
 import argparse, asyncio, subprocess, tempfile

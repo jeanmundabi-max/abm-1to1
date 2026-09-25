@@ -1,10 +1,8 @@
 # The skeleton: what never changes, and what must
 
-_Part of the `abm-1to1` skill. Enforced by `scripts/page_standard.py`._
-
 Written 2026-09-08, after a WYN page cleared every count in the gate and was still pale beside
 the Revolut page the gate was built from. Counting words and sections was optimising the wrong
-variable. The operator's note: *the quantity of the page is not the point.*
+variable. *The quantity of the page is not the point.*
 
 ---
 
