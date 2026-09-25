@@ -64,7 +64,12 @@ PAGE_RULES = [
 ]
 # The vendor narrating itself. Nobody buys a product from the vendor's own wall.
 # A page is written from the buyer's seat (sops/07b). These strings mean it was not.
-VENDOR_VOICE = [r"in [A-Z][A-Za-z']+ own words", r"own words", r"sells three things", r"Pricing is public",
+# "in YOUR own words" and "in THEIR own words" address the buyer about what the buyer
+# published, which is the opposite of the failure this catches. Only a possessive proper
+# noun counts: "in ElevenLabs' own words".
+VENDOR_VOICE = [r"in [A-Z][A-Za-z']+ own words",
+                r"(?<!your )(?<!their )(?<!our )(?<!its )(?<!his )(?<!her )own words",
+                r"sells three things", r"Pricing is public",
                 r"The mechanism, in one sentence"]
 REQUIRED_FILES = [
  ("BRIEF.md",  "The interview, verbatim. Without it the page was built from assumptions."),
