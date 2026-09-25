@@ -1,0 +1,345 @@
+<!doctype html><html lang="en-GB"><head><meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Monzo &middot; hear your own line answered</title>
+<meta name="description" content="Monzo: 67,488 complaints in six months, Monzo, complaints data, Oct 2025 to Mar 2026. Hear your own line answered, one call reason, built from your own help pages, inside 48 hours.">
+<meta name="robots" content="noindex,nofollow">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="scrollcraft.css">
+<style>
+ :root{ --sc-canvas:#FDFCFC; --sc-surface:#F5F3F1; --sc-ink:#000000; --sc-ink-soft:#5C5752; --sc-accent:#3F8F7A; --sc-accent-ink:#fff; --rule:#D8CEC4;
+   --sc-font-display:"Inter",system-ui,sans-serif; --sc-font-text:"Inter",system-ui,sans-serif; }
+ *{margin:0;padding:0;box-sizing:border-box}
+ body{font-family:Inter,system-ui,sans-serif;color:var(--sc-ink);background:var(--sc-canvas);line-height:1.62;-webkit-font-smoothing:antialiased}
+
+ /* ---- THE WALLBOARD. The page is the board on the wall of Monzo's contact centre: a
+    dark instrument that carries their own published tiles, and one tile in the ElevenAgents
+    colour that lights when the reader gets to the ask. A strip of it stays fixed at the top
+    the whole way down, so the number is never out of sight. No nav. ---- */
+ .strip{position:fixed;left:0;right:0;top:0;z-index:40;background:#111111;color:#E8E6E1;display:flex;align-items:stretch;gap:0;padding:0 clamp(14px,2.4vw,28px);height:58px;box-shadow:0 8px 30px rgba(0,0,0,.25)}
+ .strip .wm{display:flex;align-items:center;font-weight:900;font-size:.95rem;padding-right:18px;border-right:1px solid #333;margin-right:14px;white-space:nowrap}
+ .strip .wm span{font-weight:500;color:#8F8880;font-size:.78rem;margin-left:8px}
+ .strip .st{display:flex;flex-direction:column;justify-content:center;padding:0 16px;border-right:1px solid #2a2a2a;min-width:0}
+ .strip .st i{font-style:normal;font-size:.56rem;letter-spacing:.14em;text-transform:uppercase;color:#8F8880;font-weight:700;white-space:nowrap}
+ .strip .st b{font-size:1.05rem;font-weight:900;letter-spacing:-.02em;font-variant-numeric:tabular-nums;white-space:nowrap}
+ .strip .st.on{background:var(--sc-accent);color:#fff} .strip .st.on i{color:#eaf6f1}
+ .strip .st.off b{color:#444}
+ .strip .who{margin-left:auto;display:flex;align-items:center;font-size:.72rem;color:#8F8880;font-weight:600;white-space:nowrap}
+ @media (max-width:1100px){ .strip .st:nth-child(n+4){display:none} .strip .who{display:none} }
+ @media (max-width:620px){ .strip .st{display:none} .strip .st#stlit{display:flex;margin-left:auto} .strip .wm span{display:none} }
+ main{padding-top:58px}
+
+ .col{max-width:1160px;margin:0 auto;padding:0 clamp(28px,5vw,64px)}
+ h1{font-size:clamp(2.2rem,5.2vw,4.3rem);line-height:1.02;letter-spacing:-.04em;font-weight:900}
+ h2{font-size:clamp(1.5rem,2.9vw,2.4rem);line-height:1.12;letter-spacing:-.028em;font-weight:800}
+ h3{font-size:1.08rem;font-weight:800;margin-top:30px}
+ p{margin-top:15px;max-width:66ch}
+ .lede{font-size:clamp(1.02rem,1.45vw,1.2rem);color:var(--sc-ink-soft);max-width:56ch;margin-top:20px}
+ .eyebrow{font-size:.7rem;font-weight:800;letter-spacing:.18em;text-transform:uppercase;color:var(--sc-ink-soft)}
+ .pstage{min-height:100vh;display:grid;align-content:center}
+
+ /* the board itself */
+ .wall{background:#111111;border-radius:22px;padding:clamp(14px,1.8vw,26px);display:grid;grid-template-columns:1fr 1fr;gap:12px;box-shadow:0 30px 60px rgba(0,0,0,.22)}
+ .tile{background:#1C1C1C;border-radius:14px;padding:18px 20px;min-height:132px;display:flex;flex-direction:column;justify-content:space-between}
+ .tile .l{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:#8F8880;font-weight:700}
+ .tile .v{font-size:clamp(2.2rem,4vw,3.6rem);font-weight:900;letter-spacing:-.04em;color:#E8E6E1;line-height:1;font-variant-numeric:tabular-nums}
+ .tile .s{font-size:.72rem;color:#8F8880;font-weight:600;margin-top:6px}
+ .tile.big{grid-column:1/3} .tile.big .v{font-size:clamp(3.4rem,7vw,6.4rem)}
+ .tile.on{background:var(--sc-accent)} .tile.on .l,.tile.on .s{color:#eaf6f1} .tile.on .v{color:#fff}
+ .tile.off{background:#161616} .tile.off .v{color:#3a3a3a} .tile.off .l,.tile.off .s{color:#4a4a4a}
+ /* departures: a dark flip board */
+ .dep{background:#111111;border-radius:22px;padding:clamp(14px,1.8vw,26px);box-shadow:0 30px 60px rgba(0,0,0,.22);font-variant-numeric:tabular-nums}
+ .dhead{display:grid;grid-template-columns:1.2fr 1fr 1.3fr;gap:14px;font-size:.6rem;letter-spacing:.16em;text-transform:uppercase;color:#8F8880;font-weight:700;padding:6px 14px 12px;border-bottom:1px solid #2a2a2a}
+ .drow{display:grid;grid-template-columns:1.2fr 1fr 1.3fr;gap:14px;align-items:center;padding:16px 14px;border-bottom:1px solid #222;color:#E8E6E1}
+ .drow .dl{font-size:.95rem;font-weight:700;text-transform:uppercase;letter-spacing:.06em} .drow .dv{font-size:clamp(1.4rem,2.6vw,2.2rem);font-weight:900;letter-spacing:-.03em} .drow .ds{font-size:.8rem;color:#8F8880;font-weight:600}
+ .drow.on{background:var(--sc-accent);border-radius:12px;color:#fff} .drow.on .ds{color:#eaf6f1}
+ .drow.off .dv,.drow.off .dl{color:#3a3a3a} .drow.off .ds{color:#444}
+ /* thread: the in-app support thread */
+ .phone{background:#fff;border:1px solid var(--rule);border-radius:28px;padding:18px;max-width:520px;box-shadow:0 30px 60px rgba(0,0,0,.12)}
+ .pbar{font-size:.72rem;font-weight:800;letter-spacing:.12em;text-transform:uppercase;color:var(--sc-ink-soft);text-align:center;padding:4px 0 14px;border-bottom:1px solid var(--rule);margin-bottom:12px}
+ .bub{border-radius:18px;padding:12px 16px;margin:10px 0;font-size:.98rem;line-height:1.45;max-width:86%}
+ .bub.them{background:var(--sc-surface);margin-left:auto;border-bottom-right-radius:6px}
+ .bub.monzo{background:#fff;border:1px solid var(--rule);border-bottom-left-radius:6px}
+ .bub.agent{background:var(--sc-accent);color:#fff;border-bottom-left-radius:6px} .bub.agent b{font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;opacity:.9}
+ .bub.agent.off{background:#ececea;color:#b5b2ad}
+ .tdiv{text-align:center;font-size:.7rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sc-ink-soft);font-weight:800;margin:16px 0}
+ .tfact{font-size:.8rem;color:var(--sc-ink-soft);padding:8px 4px;border-top:1px solid var(--rule)} .tfact b{color:var(--sc-ink);font-weight:900;font-size:1.05rem;margin-right:6px} .tfact i{font-style:normal;opacity:.7}
+ /* printed: the firm's own table, return or script */
+ .printed{background:#fff;border:1px solid var(--rule);border-radius:16px;padding:clamp(18px,2.4vw,34px);box-shadow:0 30px 60px rgba(0,0,0,.10)}
+ .ptitle{font-size:.7rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-ink-soft);margin-bottom:14px}
+ .pfoot{font-size:.74rem;color:var(--sc-ink-soft);margin-top:14px}
+ .ptbl{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums} .ptbl th{text-align:left;font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sc-ink-soft);padding:8px 10px;border-bottom:2px solid var(--sc-ink)}
+ .ptbl td{padding:14px 10px;border-bottom:1px solid var(--rule);font-size:clamp(1rem,1.6vw,1.35rem);font-weight:800;letter-spacing:-.01em} .ptbl td:first-child{font-weight:700;color:var(--sc-ink-soft);font-size:.9rem}
+ .ptbl tr.on td{background:var(--sc-accent);color:#fff;border-radius:0} .ptbl tr.off td{color:#c9c5bf}
+ .fgrid{display:grid;grid-template-columns:1fr 1fr;gap:12px} .ff{border:1px solid var(--rule);border-radius:10px;padding:14px 16px}
+ .ff label{display:block;font-size:.6rem;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-ink-soft);font-weight:800}
+ .ff .fv{font-size:clamp(1.4rem,2.6vw,2.2rem);font-weight:900;letter-spacing:-.03em;line-height:1.1;margin-top:4px} .ff .fs{font-size:.76rem;color:var(--sc-ink-soft);margin-top:4px}
+ .ff.on{background:var(--sc-accent);border-color:var(--sc-accent);color:#fff} .ff.on label,.ff.on .fs{color:#eaf6f1} .ff.off{color:#c9c5bf} .ff.off .fv{color:#c9c5bf}
+ .script .sline{display:grid;grid-template-columns:150px 1fr;gap:14px;padding:12px 0;border-bottom:1px solid var(--rule);align-items:baseline}
+ .scue{font-size:.64rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sc-ink-soft);font-weight:800} .stext{font-size:1.02rem;line-height:1.5} .stext b{font-weight:900;font-size:1.3rem}
+ .script .sline.on{background:var(--sc-accent);color:#fff;border-radius:10px;padding:14px} .script .sline.on .scue{color:#eaf6f1} .script .sline.off .stext{color:#c9c5bf}
+ @media (max-width:700px){ .fgrid{grid-template-columns:1fr} .script .sline{grid-template-columns:1fr} }
+ .stage1{display:grid;grid-template-columns:1fr 1.05fr;gap:clamp(22px,3vw,52px);min-height:100vh;align-content:center;align-items:center;padding:clamp(50px,7vh,100px) 0}
+ .plate{background:#111111;border-radius:22px;padding:clamp(10px,1.2vw,16px);box-shadow:0 30px 60px rgba(0,0,0,.22)}
+ .plate video{width:100%;display:block;border-radius:14px;max-height:min(46vh,470px);object-fit:contain;background:#111}
+ .plate .cap{color:#8F8880;margin:10px 6px 4px;font-size:.78rem}
+ @media (max-width:880px){ .stage1{grid-template-columns:1fr} }
+ .dark{background:#111111;color:#E8E6E1;border-radius:22px;padding:clamp(22px,3vw,44px)}
+ .dark h2,.dark .eyebrow{color:#E8E6E1} .dark p,.dark .cap{color:#bdb8b0} .dark .eyebrow{color:#8F8880}
+ .dark .figwrap svg{width:100%;min-width:600px;height:auto;display:block}
+ .silence{font-size:clamp(1.6rem,3.2vw,2.6rem);font-weight:700;line-height:1.3;letter-spacing:-.022em;max-width:24ch}
+ .figwrap{margin:22px 0 8px;overflow-x:auto}
+ .cap{font-size:.84rem;color:var(--sc-ink-soft);margin-top:10px;max-width:70ch}
+ .holdwrap{display:grid;grid-template-columns:300px 1fr;gap:clamp(20px,3vw,44px);align-items:center;margin-top:22px}
+ /* The engine hands pointer-events back only when a cue is more than half visible, and it
+    writes that inline, so the signature move was dead to a press for most of the act. The
+    interactive block opts out of that, permanently. Found 2026-09-23: a seven second press
+    in the middle of the ring did nothing, on phone and on laptop. */
+ .holdwrap, .holdwrap *{pointer-events:auto!important}
+ .holdwrap svg{width:100%;max-width:300px;height:auto;display:block;cursor:pointer;touch-action:none;user-select:none}
+ .verdict{font-size:clamp(1.15rem,1.9vw,1.55rem);font-weight:700;line-height:1.35;letter-spacing:-.015em;min-height:3.6em;color:#E8E6E1}
+ /* Sur telephone le bloc sombre depassait l'ecran: la copie en haut, l'anneau sous la ligne de
+    flottaison, donc un ecran presque entierement noir et vide pendant un cran de defilement.
+    L'anneau remonte et retrecit pour que le geste et sa phrase tiennent ensemble. */
+ @media (max-width:760px){ .holdwrap{grid-template-columns:1fr;gap:16px;margin-top:16px}
+   .holdwrap svg{max-width:220px;margin:0 auto} .verdict{min-height:0;font-size:1.05rem}
+   #peak .dark{padding:20px} #peak .dark p{font-size:.95rem} }
+ .tblwrap{overflow-x:auto}
+ .tbl{width:100%;border-collapse:collapse;margin-top:22px;font-size:.93rem;min-width:540px}
+ .tbl th{text-align:left;font-size:.66rem;letter-spacing:.12em;text-transform:uppercase;color:var(--sc-ink-soft);padding:0 12px 10px 0;border-bottom:1px solid var(--rule)}
+ .tbl td{padding:12px 12px 12px 0;border-bottom:1px solid var(--rule);vertical-align:top}
+ .routes{display:grid;grid-template-columns:1fr 1fr;margin-top:28px;border-top:2px solid var(--sc-ink)}
+ .rt{padding:26px 0} .rt--b{padding-left:34px;border-left:1px solid var(--rule)}
+ .rt h3{margin-top:0;font-size:1.12rem} .rt p{font-size:.95rem}
+ .rt .tag{font-size:.64rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-accent)}
+ details{border-bottom:1px solid var(--rule);padding:15px 0} summary{font-weight:700;cursor:pointer;list-style:none}
+ summary::-webkit-details-marker{display:none} summary::before{content:"+";color:var(--sc-accent);font-weight:900;margin-right:10px}
+ details[open] summary::before{content:"\2212"} details p{color:var(--sc-ink-soft);margin-top:9px}
+ .proof{display:grid;gap:0;margin-top:28px;border-top:2px solid var(--sc-ink)}
+ .pf{display:grid;grid-template-columns:minmax(180px,1fr) 2.2fr;gap:clamp(16px,2.4vw,40px);padding:26px 0;border-bottom:1px solid var(--rule);align-items:start}
+ .pf__who{font-weight:900;font-size:1.3rem;line-height:1.2;letter-spacing:-.02em} .pf__role{font-size:.85rem;color:var(--sc-ink-soft);margin-top:6px;font-weight:600}
+ .pf__what{font-size:1.05rem;line-height:1.6} .pf__src{font-size:.8rem;color:var(--sc-ink-soft);margin-top:9px}
+ @media (max-width:700px){ .pf{grid-template-columns:1fr;gap:8px} }
+ .fwd{background:var(--sc-surface);border-left:3px solid var(--sc-accent);padding:24px 28px;margin-top:26px;max-width:70ch;border-radius:0 12px 12px 0}
+ .form{display:grid;gap:13px;margin-top:24px;max-width:520px}
+ label{font-size:.66rem;font-weight:800;letter-spacing:.14em;text-transform:uppercase;color:var(--sc-ink-soft)}
+ input{width:100%;padding:14px 16px;border:1px solid var(--rule);border-radius:999px;font:inherit;font-size:1rem;background:#fff}
+ input:focus-visible{outline:2px solid var(--sc-accent);outline-offset:2px}
+ .btn{display:inline-block;padding:14px 26px;border:0;border-radius:999px;background:var(--sc-ink);color:#fff;font:inherit;font-weight:700;font-size:1rem;cursor:pointer;text-decoration:none}
+ .btn--ghost{background:#fff;color:var(--sc-ink);border:1px solid var(--rule)}
+ .terms{font-size:.85rem;color:var(--sc-ink-soft);margin-top:13px;max-width:56ch}
+ .sc-section{padding:clamp(38px,5.5vw,78px) 0;border-top:1px solid var(--rule)}
+ footer{padding:66px 0 90px;border-top:1px solid var(--rule);font-size:.76rem;color:#7B7B92;line-height:1.7;max-width:82ch}
+ @media (max-width:760px){ .routes{grid-template-columns:1fr} .rt--b{padding-left:0;border-left:0;border-top:1px solid var(--rule)} }
+</style></head><body>
+
+<div class="strip" id="strip">
+  <div class="wm">IIElevenLabs<span>ElevenAgents</span></div>
+  <div class="st"><i>Complaints opened</i><b>67,488</b></div><div class="st"><i>Closed within 3 days</i><b>35.91%</b></div><div class="st"><i>Per 1,000 accounts</i><b>2.39</b></div>
+  <div class="st off" id="stlit"><i>Answered</i><b id="stlitv">not yet</b></div>
+  <div class="who">Monzo &middot; Monzo, complaints data, Oct 2025 to Mar 2026</div>
+</div>
+<main>
+
+<!-- BEAT 1 · THE AD CONTINUES · scrub. The board they clicked, alive, beside the promise. -->
+<section data-sc-act="scrub" data-sc-span="2.2" id="a1"><div data-sc-stage>
+ <div class="col stage1">
+  <div>
+    <p class="eyebrow" data-sc-cue="0 1 0">For customer operations at Monzo</p>
+    <h1 data-sc-cue="0 1 0" data-sc-rise="0">Hear your own line answered.</h1>
+    <p class="lede" data-sc-cue="0 1 0" data-sc-rise="0">Monzo, complaints data, Oct 2025 to Mar 2026 says <b>67,488</b>. One call reason, <b>card and payment queries</b>, answered on the first ring by a line built from monzo.com/help, on a real number you can ring, inside 48 hours.</p>
+    <p data-sc-cue="0 1 0"><a class="btn" href="#ask">Build the line</a> <a class="btn btn--ghost" href="#routes">Or talk to sales</a></p>
+  </div>
+  <div class="plate" data-sc-cue="0 1 0" data-sc-rise="0">
+    <video id="film" src="hero.mp4" muted playsinline loop autoplay preload="auto" aria-label="Your wallboard, in thirty-two seconds"></video>
+    <p class="cap">The in-app support thread, in thirty-two seconds, no sound needed. Every figure is from the file; one line is new.</p>
+  </div>
+ </div>
+</div></section>
+
+<!-- BEAT 2 · THE PROBLEM YOU HAVE NOW · pin. Their tiles, their file, their next edition. -->
+<section data-sc-act="pin" data-sc-span="2.0"><div data-sc-stage class="pstage"><div class="col">
+ <p class="eyebrow" data-sc-cue="0.05">The in-app support thread</p>
+ <h2 data-sc-cue="0.07">Your number, as you publish it</h2>
+ <div data-sc-cue="0.12" style="margin-top:22px"><div class="phone"><div class="pbar">Monzo &middot; Help</div><div class="bub them">Hi, a payment on my card was declined and I need it sorted today.</div><div class="bub monzo">Thanks for getting in touch. We&#x27;ve passed this to the team and we&#x27;ll get back to you as soon as we can.</div><div class="tdiv">Three days, for 64% of complaints</div><div class="bub agent off" id="tlit"><b>Answered &middot; 0:01</b><br>the same question, on the phone, on the first ring</div><div class="tfact"><b>67,488</b> Complaints opened <i>1 Oct 2025 to 31 Mar 2026</i></div><div class="tfact"><b>35.91%</b> Closed within 3 days <i>the rest take longer</i></div><div class="tfact"><b>2.39</b> Per 1,000 accounts <i>banking and credit cards</i></div><div class="tfact"><b>62.00%</b> Closed after 3 days, within 8 weeks <i>by Monzo&#x27;s own count</i></div></div></div>
+ <p class="cap" data-sc-cue="0.2">&ldquo;67,488 complaints opened. 35.91% closed within 3 days. 62.00% closed after 3 days but within 8 weeks.&rdquo; <span class="cite">monzo.com/legal/complaints-data, read 11 September 2026.</span> The lit line is not there yet. The rest is.</p>
+</div></div></section>
+
+<section class="sc-section"><div class="col">
+ <h2>What the next edition costs, if nothing moves</h2>
+ <p>One more half-year at the current rate is another 67,000 complaints worked by hand, and 43,000 of them past the third day.</p>
+ <p>Diana Layfield became Group CEO on 1 February 2026 and Shelley Malton joined as Group COO from NatWest in early 2026. Both seats own this number from day one. A number that stays where it is through a change at the top becomes the new leadership&rsquo;s number. A number that moves in the first two editions is theirs too.</p>
+ <p>There is no cost-per-call figure on this page. Several are in circulation and none of them is yours. The sum that matters is the one your own finance team can do from the board above, and the page leaves it to them.</p>
+ <div class="dark" style="margin-top:28px">
+  <p class="eyebrow">The same measure, the same file, at true scale</p>
+  <div class="figwrap"><svg viewBox="0 0 1000 192" role="img" aria-label="Monzo, the same measure, drawn at true scale"><text x="0" y="40" font-size="15" font-weight="800" fill="#E8E6E1">Monzo, closed within 3 days</text><rect x="330" y="16" width="303.0" height="36" rx="4" fill="#E8E6E1"/><text x="645.0" y="41" font-size="18" font-weight="800" fill="#E8E6E1">35.91%</text><text x="0" y="96" font-size="15" font-weight="600" fill="#8F8880">NatWest, the largest UK bank by complaints</text><rect x="330" y="72" width="388.1" height="36" rx="4" fill="#3a3a3a"/><text x="730.1" y="97" font-size="18" font-weight="800" fill="#E8E6E1">46%</text><text x="0" y="152" font-size="15" font-weight="600" fill="#8F8880">HSBC UK</text><rect x="330" y="128" width="540.0" height="36" rx="4" fill="#3a3a3a"/><text x="882.0" y="153" font-size="18" font-weight="800" fill="#E8E6E1">64%</text></svg></div>
+  <p class="cap cite">FCA firm-level complaints 2025 H2 for NatWest and HSBC UK (Jul to Dec 2025); Monzo from its own publication (Oct 2025 to Mar 2026). Different periods, same measure.</p>
+ </div>
+</div></section>
+
+<!-- BEAT 3 · WHY IT HAPPENS · flow. Authored silence: one thought on white, no figure, no accent. -->
+<section data-sc-act="flow" data-sc-span="1.2"><div data-sc-stage><div class="col">
+ <p class="silence" data-sc-cue="0.1">Your callers are not hanging up on your advisers. They are hanging up on the wait.</p>
+</div></div></section>
+
+<section class="sc-section"><div class="col">
+ <h2>Why the first tile reads what it reads</h2>
+ <p>Your support runs in the app, and it runs well for the questions that can wait. The ones that cannot wait become complaints, and your own return says most of those take longer than three days to close. Every thread that sits for three days is a customer who tried the chat, then the phone, then wrote it up. Answering the phone on the first ring, with the case already open, takes the third step away.</p>
+ <p>That is why the lit tile on the board reads a time and not a percentage. The board does not get better by shaving seconds off the queue. It gets better when the queue is not where a call starts.</p>
+</div></section>
+
+<!-- BEAT 4 · THE HOLD · pin. THE PEAK. Inside the board. -->
+<section data-sc-act="pin" data-sc-span="3.0" id="peak"><div data-sc-stage class="pstage"><div class="col">
+ <div class="dark">
+  <p class="eyebrow" data-sc-cue="0.04">On hold</p>
+  <h2 data-sc-cue="0.06">Press and hold, for as long as you would wait</h2>
+  <p data-sc-cue="0.1">The wait tile counts up at the rate of your own published queue: one second on the button is one hour in the queue. It stops when you let go, and the board tells you where you gave up against three working days. <b style="color:#E8E6E1">It never says your number is bad.</b> It says where a person stops waiting.</p>
+  <div class="holdwrap" data-sc-cue="0.14">
+    <svg viewBox="0 0 320 320" id="hold" role="img" aria-label="Press and hold. The wait counts up at the rate of three working days"><rect x="0" y="0" width="320" height="320" fill="transparent"/><circle cx="160" cy="160" r="128" fill="#111111" fill-opacity="0.01" stroke="#2a2a2a" stroke-width="12"/><circle id="holdring" cx="160" cy="160" r="128" fill="none" stroke="#E8E6E1" stroke-width="12" stroke-dasharray="804.2" stroke-dashoffset="804.2" transform="rotate(-90 160 160)"/><text id="holdt" x="160" y="150" font-size="60" font-weight="900" fill="#E8E6E1" text-anchor="middle">0:00</text><text id="holdl" x="160" y="190" font-size="15" font-weight="700" fill="#8F8880" text-anchor="middle">press and hold</text></svg>
+    <div><p class="verdict" id="verdict">Hold the ring. Let go when you would hang up.</p>
+    <p class="cap">64% of Monzo&#x27;s complaints take longer than three days to close, by Monzo&#x27;s own count.</p></div>
+  </div>
+ </div>
+</div></div></section>
+
+<section class="sc-section"><div class="col">
+ <p class="eyebrow">The fix, named</p>
+ <h2>What changes for you with ElevenAgents</h2>
+ <p>A caller with a declined card is answered before the first ring ends, in the voice you chose, and the line already knows what your help pages say about declined payments. It resolves what it can and hands the rest to your team with the whole history attached, so the thread never has to be written. The number on your return that reads 35.91% starts moving because fewer complaints start.</p>
+ <p>Nothing about how it is built is on this page, because you do not buy a contact centre on its plumbing. You buy it on the number, and on what the people who run lines like yours say about theirs.</p>
+</div></section>
+
+<!-- BEAT 5 · PEOPLE LIKE YOU · flow, data-proof. Peers, quoted whole, with the limit on each. -->
+<section data-sc-act="flow" data-sc-span="2.0" data-proof><div data-sc-stage><div class="col">
+ <p class="eyebrow" data-sc-cue="0.04">People who run a line like yours</p>
+ <h2 data-sc-cue="0.06">What they said, in their words, with the limit on each</h2>
+ <p class="lede" data-sc-cue="0.08">Every quotation below is the person&rsquo;s own, printed whole, from ElevenLabs&rsquo; published customer stories read on 23 September 2026. Where a result is described rather than spoken, it is marked as a description.</p>
+ <div class="proof" data-sc-cue="0.12"><div class="pf"><div><div class="pf__who">Revolut</div><div class="pf__role">Julia Ponomareva, Director of CX and AI Products</div></div><div><p class="pf__what" style="margin-top:0">&ldquo;Operating across nearly 40 markets, we needed a provider that could match the complexity, speed and language support required without making sacrifices on quality.&rdquo;</p><p class="pf__src cite">ElevenLabs customer story, 28 January 2026. Revolut&#x27;s own first-phase figures: time-to-resolution cut by more than 8 times, more than 99.7% of agent calls completed, 4 million customers, 30+ languages. Their deployment, their numbers, not applied to Monzo.</p></div></div><div class="pf"><div><div class="pf__who">Revolut</div><div class="pf__role">Ines Azevedo, Tech Product Owner (AI)</div></div><div><p class="pf__what" style="margin-top:0">&ldquo;We tested every major provider. Some lacked flexibility, others missed reliability targets, and a few couldn&#x27;t match the voice quality necessary where we operate.&rdquo;</p><p class="pf__src cite">ElevenLabs customer story, 28 January 2026. The evaluation a technical owner at a bank ran, in her words.</p></div></div><div class="pf"><div><div class="pf__who">Deutsche Telekom</div><div class="pf__role">Sahil Sakhuja, Head of AI Products</div></div><div><p class="pf__what" style="margin-top:0">&ldquo;In the contact center, the only moment you have to foster trust is when you say hello. Given the state-of-the-art voice quality that ElevenLabs has, customers will give us a chance.&rdquo;</p><p class="pf__src cite">ElevenLabs customer story, 10 August 2026. Europe&#x27;s largest telco by its own description. No outcome figure is published, and none is claimed here.</p></div></div><div class="pf"><div><div class="pf__who">Allegro</div><div class="pf__role">Allegro, three delivery hotlines</div></div><div><p class="pf__what" style="margin-top:0">An e-commerce platform serving over 20 million active buyers runs voice agents on three delivery hotlines; on escalation the agent collects the tracking number and passes a conversation summary to a person. ElevenLabs&#x27; description, no named speaker, no outcome figure.</p><p class="pf__src cite">ElevenLabs customer story, 7 September 2026.</p></div></div></div>
+ <h3 data-sc-cue="0.2">What is not here</h3>
+ <p data-sc-cue="0.2">Klarna is a named customer with no published figure, so none appears. A figure circulating on third-party sites was checked and not used.</p>
+</div></div></section>
+
+<section class="sc-section"><div class="col">
+ <p class="eyebrow">What can be done for you</p>
+ <h2>What arrives, and what does not</h2>
+ <h3>What arrives</h3>
+ <p>A real UK phone number. On it, one line built for one call reason, <b>card and payment queries</b>, from the pages you already publish at monzo.com/help, in a voice you pick. Ring it from your desk. Ring it at 9pm. Forward the number to three colleagues and let them try to break it. A written note beside it says what it was built from and what it does when it cannot answer.</p>
+ <h3>What does not arrive</h3>
+ <p>A saving with your name on it. Nobody outside your building knows your call mix, your handle time or your roster, and a figure produced without those is theatre. The line shows the floor: how fast one call reason can be answered, and how it sounds. What that is worth across your board is your sum to do.</p>
+ <h3>One line of the note, as it would read</h3>
+ <div class="tblwrap"><table class="tbl"><tbody>
+  <tr><td><b>Call reason</b></td><td>card and payment queries</td></tr>
+  <tr><td><b>Built from</b></td><td>monzo.com/help, read on the day it was built, pages listed</td></tr>
+  <tr><td><b>Voice</b></td><td>chosen by you, or a cloned adviser with consent</td></tr>
+  <tr><td><b>When it cannot answer</b></td><td>says so, states the hand-off it would make, and stops. No customer is on the line</td></tr>
+  <tr><td><b>What it connects to</b></td><td>nothing of yours</td></tr>
+  <tr><td><b>Who can ring it</b></td><td>anyone you give the number to</td></tr>
+  <tr><td><b>How long it stays up</b></td><td>fourteen days, then it is switched off unless you ask otherwise</td></tr>
+ </tbody></table></div>
+ <p class="cap">The last two rows are the ones that make it safe to say yes to. A line only your people ring, that switches itself off, is not a deployment.</p>
+</div></section>
+
+<section class="sc-section"><div class="col">
+ <h2>What happens after you have rung it</h2>
+ <p>Nothing automatic. No follow-up sequence, no calendar link, and nobody telephones your switchboard. The line is the whole of the first exchange.</p>
+ <p>If it is useful, the next question is not commercial. It is which call reasons come next and what your risk and assurance people need to see, and that conversation is yours to start on your timetable. A team that rings the line, takes the idea to its own vendor and gets a better answer there has had the whole benefit at no cost, and that is a legitimate outcome.</p>
+ <p><b>And if the answer is no.</b> There is no second line and no retargeting. This page was built for one organisation and shown to nobody else.</p>
+</div></section>
+
+<!-- BEAT 8 · TWO WAYS IN · flow -->
+<section data-sc-act="flow" data-sc-span="1.8" id="routes"><div data-sc-stage><div class="col">
+ <h2 data-sc-cue="0.06">Two ways in, and the first asks you for almost nothing</h2>
+ <div class="routes" data-sc-cue="0.12">
+  <div class="rt"><span class="tag">Start here</span><h3>Hear your own line answered</h3>
+   <p>One call reason, one real number, built from your public help pages, inside 48 hours. You ring it. That is the whole ask.</p>
+   <p><b>You send a work email and the number you want mirrored.</b> No data, no install, no meeting, nothing that touches procurement.</p></div>
+  <div class="rt rt--b"><span class="tag">Only if you want it</span><h3>Talk to sales</h3>
+   <p>The commercial conversation: terms, service levels, a data agreement, single sign-on, and the plan for the whole board.</p>
+   <p><b>This one goes through your procurement</b> on your timetable, and it may never happen.</p></div>
+ </div>
+</div></div></section>
+
+<!-- BEAT 7 · WHO DECIDES · flow -->
+<section data-sc-act="flow" data-sc-span="1.6"><div data-sc-stage><div class="col">
+ <h2 data-sc-cue="0.06">The three seats this has to survive</h2>
+ <p data-sc-cue="0.1">Anyone who takes this seriously has to put it in front of two other people. Here is what each asks first, and the answer to hand them.</p>
+ <div class="tblwrap" data-sc-cue="0.16"><table class="tbl"><thead><tr><th>Seat</th><th>What they ask first</th><th>The answer</th></tr></thead><tbody><tr><td><b>Group Chief Operating Officer</b><br><span class="cap">Shelley Malton</span></td><td>Who owns this if it goes wrong on a live call?</td><td>You do, which is why the first step is a line only you can ring. Nothing touches a customer until you have heard it.</td></tr><tr><td><b>Group Chief Technology Officer</b><br><span class="cap">Matej Pfajfar</span></td><td>What does it plug into, and who runs it?</td><td>The demonstration line plugs into nothing of yours. In a live deployment the caller reaches your team with the whole conversation attached; what it connects to is a conversation for your engineers, not for this page.</td></tr><tr><td><b>Group Chief Risk Officer</b><br><span class="cap">Iain Laing</span></td><td>Consumer Duty. An AI talking to a customer is a conduct question.</td><td>Agreed, and the first step has no customer on it. The line is built from your public help centre and only your team rings it.</td></tr></tbody></table></div>
+ <div class="fwd" data-sc-cue="0.24"><p style="margin-top:0"><b>The paragraph to forward, if that is easier</b></p><p>Our own complaints data says 64% of complaints take longer than three days to close. Someone has offered to build a working voice agent for our top call reason from our public help centre, on a real number, in 48 hours, so we can ring it ourselves. Nothing is installed, no data leaves us, and it is not a sales call. I think it is worth listening to.</p></div>
+</div></div></section>
+
+<section class="sc-section"><div class="col">
+ <h2>Why Monzo can say yes to the first step without a procurement</h2>
+ <p>A regulated firm cannot let a third party&rsquo;s software talk to its customers because someone filled in a web form. That is a conduct decision with rules attached, and rightly so. It cannot hand customer data to an unappointed vendor, and it cannot let a vendor into its telephony on a demonstration.</p>
+ <p><b>None of those things is being asked.</b> The first exchange is a phone number, travelling in one direction, built from pages Monzo published itself. Ringing a number is not a procurement, it creates no obligation, it needs no contract, and it needs no supplier record. It is the same act as listening to a voicemail somebody left you.</p>
+ <p>The practical test: <em>what would this look like written down?</em> Written down, it is: an outside party built a demonstration from our own public help pages and gave us a number to ring. We were not asked for anything and we gave nothing. That sentence survives a risk committee, which is the only bar that counts.</p>
+</div></section>
+
+<section class="sc-section"><div class="col">
+ <h2>Everything anyone has asked</h2>
+ <details><summary>Where does the number on this page come from?</summary><p>From Monzo&#x27;s own complaints publication under FCA DISP 1.10A, read on 23 September 2026. Nothing was obtained by request, inferred or estimated. The second source is FCA firm-level complaints data 2025 H2.</p></details><details><summary>Complaints are not calls.</summary><p>Correct, and the page never says otherwise. A complaint is what a queue produces. The line answers the queue; the file counts what it produced.</p></details><details><summary>It will sound like a robot.</summary><p>You choose the voice from a library of more than 10,000, or clone one of your own advisers with their consent. Deutsche Telekom&#x27;s Head of AI Products put the test in one line: the only moment you have to foster trust is when you say hello. You hear that hello before any customer does.</p></details><details><summary>What happens when it cannot answer?</summary><p>The caller reaches a person who already has the whole conversation in front of them. On the demonstration line there is no customer, so it says what it would do and stops.</p></details><details><summary>Who is ElevenLabs?</summary><p>The company Revolut, Deutsche Telekom, Klarna and Allegro chose for this, by their own published accounts. Headquartered in London, with offices in San Francisco, New York, Warsaw, Dublin and Tokyo.</p></details><details><summary>We are regulated. An AI cannot talk to our customers.</summary><p>Nothing on the demonstration line talks to a customer. It is built from your public help pages and only your team rings it. Whether anything ever goes live is a decision your risk and assurance people make on their timetable.</p></details><details><summary>What data do you need?</summary><p>None. The line is built from what you already publish at monzo.com/help. If a later stage ever touches your own systems, that stage starts with your information security team, not with a form on a web page.</p></details><details><summary>We already have a chatbot.</summary><p>Most companies on this ladder do, and the regulator still prints the phone number. Chat is where the easy questions went. The phone is where the rest are, and it is the channel the file measures.</p></details><details><summary>We already have a CCaaS vendor with an AI add-on.</summary><p>Then ring both. The demonstration line exists so the comparison is one you can hear rather than one you have to believe.</p></details><details><summary>What does it cost?</summary><p>The demonstration line costs nothing. What a live deployment costs is a conversation with ElevenLabs on their Enterprise terms, and it is not written on this page.</p></details><details><summary>What is 48 hours built on?</summary><p>One call reason from public documents is at the near end of what ElevenLabs publishes about set-up time. The 48 hours is the operator&#x27;s inference and is disclosed in the footer.</p></details><details><summary>Who hears the recording?</summary><p>You, and whoever you forward the number to. There is no follow-up sequence, no calendar link, and nobody telephones your switchboard.</p></details><details><summary>Why Monzo and not everybody?</summary><p>Because Monzo complaints publication under FCA DISP 1.10A printed your figure, with a date, and this page was built for one organisation from that file and shown to nobody else.</p></details><details><summary>What if it is wrong on the call?</summary><p>Then you have heard it be wrong, in private, for free, before anyone else did. That is the whole purpose of a line only you can ring.</p></details>
+</div></section>
+
+<!-- BEAT 9 · THE ASK · pin. The lit tile arrives on the board above the form. -->
+<section data-sc-act="pin" data-sc-span="1.4" id="ask"><div data-sc-stage class="pstage"><div class="col">
+ <div data-sc-cue="0.04"><div class="phone"><div class="pbar">Monzo &middot; Help</div><div class="bub them">Hi, a payment on my card was declined and I need it sorted today.</div><div class="bub monzo">Thanks for getting in touch. We&#x27;ve passed this to the team and we&#x27;ll get back to you as soon as we can.</div><div class="tdiv">Three days, for 64% of complaints</div><div class="bub agent"><b>Answered &middot; 0:01</b><br>the same question, on the phone, on the first ring</div><div class="tfact"><b>67,488</b> Complaints opened <i>1 Oct 2025 to 31 Mar 2026</i></div><div class="tfact"><b>35.91%</b> Closed within 3 days <i>the rest take longer</i></div><div class="tfact"><b>2.39</b> Per 1,000 accounts <i>banking and credit cards</i></div><div class="tfact"><b>62.00%</b> Closed after 3 days, within 8 weeks <i>by Monzo&#x27;s own count</i></div></div></div>
+ <h2 data-sc-cue="0.1" style="margin-top:26px">Hear your own line answered</h2>
+ <p data-sc-cue="0.14">One call reason, card and payment queries, from monzo.com/help, on a real number, inside 48 hours. You ring it. <b id="dline">The number is yours for fourteen days.</b></p>
+ <form class="form" data-sc-cue="0.18" onsubmit="event.preventDefault();document.getElementById('sent').hidden=false;">
+  <div><label for="em">Work email</label><input id="em" name="email" type="email" autocomplete="email" required placeholder="you@monzo.com"></div>
+  <div><label for="num">The support number to mirror</label><input id="num" name="number" type="tel" placeholder="the in-app support line"></div>
+  <button class="btn" type="submit">Build the line</button>
+  <p class="terms">It is free because it is built from pages you have already published, and because a line you can ring beats a claim you have to believe. If it does not sound like you, that is the end of it and nobody follows up.</p>
+  <p class="terms" id="sent" hidden><b>This is a demonstration page. Nothing was sent.</b></p>
+ </form>
+</div></div></section>
+
+<footer><div class="col">
+  Produced independently as a demonstration of one to one advertising. Not affiliated with, endorsed by, or produced on behalf of ElevenLabs or Monzo Bank Ltd. Names and marks belong to their owners. Every figure about Monzo is taken from Monzo&#x27;s own complaints publication under FCA DISP 1.10A and its second source as named on this page, read on 23 September 2026, and is quoted with its period. The object drawn on this page (the in-app support thread) carries only figures from those files and one line that does not exist yet; where it shows words rather than figures, those words are a demonstration and not a quotation of Monzo. Quotations attributed to named people are their own published words; described results are ElevenLabs&rsquo; descriptions. The 48-hour demonstration line was inferred by the operator from what ElevenLabs publishes and has not been agreed by ElevenLabs. Strategy and GTM research by Jean Mundabi Fala.
+</div></footer>
+</main>
+
+<script src="scrollcraft.js"></script>
+<script>
+ScrollCraft.mount(document.body);
+
+/* Computed at open. Fourteen days from today, never written in. */
+(function(){ var d=new Date(); d.setDate(d.getDate()+14); var el=document.getElementById('dline');
+  if(el) el.textContent="The number is yours until "+d.toLocaleDateString('en-GB',{day:'numeric',month:'long'})+"."; })();
+
+/* ---------------------------------------------------------------------------
+   THE WALLBOARD chrome. The strip's lit tile stays dark until the reader reaches the ask,
+   then reads 0:01, driven off --sc-p on the ask act. Engine untouched.
+--------------------------------------------------------------------------- */
+(function(){
+  var st=document.getElementById('stlit'), v=document.getElementById('stlitv'), ask=document.getElementById('ask');
+  function p(el){ return parseFloat(getComputedStyle(el).getPropertyValue('--sc-p'))||0; }
+  (function f(){ if(ask){ var q=p(ask); if(q>0.05&&!st.classList.contains('on')){ st.classList.remove('off'); st.classList.add('on'); v.textContent='0:01'; } } requestAnimationFrame(f); })();
+})();
+
+/* ---------------------------------------------------------------------------
+   SIGNATURE MOVE: THE HOLD, inside the board. The reader presses and holds; the wait counts up
+   at the true rate of the published window. On release the board says where they stopped and
+   the Answered tile lights. Never says the number is bad. Pointer handler plus --sc-p on the
+   peak act so the ring breathes with the scroll when nobody is holding.
+--------------------------------------------------------------------------- */
+(function(){
+  var svg=document.getElementById('hold'), ring=document.getElementById('holdring'), t=document.getElementById('holdt'),
+      l=document.getElementById('holdl'), vd=document.getElementById('verdict'), peak=document.getElementById('peak'),
+      lit=document.getElementById('tlit'); if(!svg) return;
+  var C=804.2, WIN=72, down=false, t0=0, released=false, HPS=1, KIND="queue";
+  function mmss(s){ s=Math.max(0,Math.floor(s)); return Math.floor(s/60)+":"+("0"+s%60).slice(-2); }
+  function show(sec){ var f=Math.min(1,sec/WIN); ring.setAttribute('stroke-dashoffset',(C*(1-f)).toFixed(1)); t.textContent=mmss(sec); }
+  svg.addEventListener('pointerdown',function(ev){ down=true; released=false; t0=performance.now(); l.textContent='holding'; vd.textContent='Keep holding. Let go when you would hang up.'; svg.setPointerCapture(ev.pointerId); });
+  function up(){ if(!down) return; down=false; released=true; var held=(performance.now()-t0)/1000, f=Math.min(1,held/WIN);
+    vd.textContent = (KIND==='wait'
+      ? "You let go at "+mmss(held)+". Your callers are asked for three working days. That is "+Math.round(f*100)+"% of the published wait."
+      : "You let go at "+mmss(held)+", which is "+Math.round(held*HPS)+" hours on this scale. The published window is three working days, and 64% run past it.")
+      + " The new line reads 0:01.";
+    l.textContent='answered'; t.textContent='0:01'; t.setAttribute('fill','#3F8F7A'); ring.setAttribute('stroke','#3F8F7A'); ring.setAttribute('stroke-dashoffset','0');
+    if(lit){ lit.classList.remove('off'); } }
+  svg.addEventListener('pointerup',up); svg.addEventListener('pointercancel',up); svg.addEventListener('pointerleave',function(){ if(down) up(); });
+  (function tick(){ if(down) show((performance.now()-t0)/1000);
+    else if(!released && peak){ var pk=parseFloat(getComputedStyle(peak).getPropertyValue('--sc-p'))||0; show(WIN*Math.min(1,Math.max(0,(pk-0.1)/0.8))*0.35); }
+    requestAnimationFrame(tick); })();
+})();
+</script>
+</body></html>
