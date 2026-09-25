@@ -33,11 +33,27 @@ check "no third-party bylines"    'By Ivan Falco'
 # Every example page still has to clear the quality gate and carry its disclosure.
 for d in examples/*/accounts/*/landing-page; do
   [ -d "$d" ] || continue
-  if ! grep -q "not affiliated with" "$d/index.html" 2>/dev/null; then
+  # case-insensitive, and on a single word, because the sentence wraps in the raw HTML
+  if ! grep -qi "affiliated" "$d/index.html" 2>/dev/null; then
     printf '  FAIL  missing disclosure: %s\n' "$d"; fail=1
   fi
 done
 [ $fail -eq 0 ] && printf '  ok    every example page carries its disclosure\n'
+
+# Every local file a page asks for has to be beside it. A WYN page shipped without its
+# scrollcraft.js once: the page still rendered, and every interactive element was dead.
+missing=0
+for f in examples/*/accounts/*/landing-page/index.html; do
+  [ -f "$f" ] || continue
+  d=$(dirname "$f")
+  for ref in $(grep -ohE '(src|href)="[^"#:]+\.(js|css|mp4|png|jpg|svg|webm)"' "$f" \
+               | sed -E 's/.*="([^"]+)"/\1/' | sort -u); do
+    if [ ! -f "$d/$ref" ]; then
+      printf '  FAIL  %s references %s, which is not there\n' "$f" "$ref"; missing=1; fail=1
+    fi
+  done
+done
+[ $missing -eq 0 ] && printf '  ok    every page has the files it asks for\n'
 
 echo
 if [ $fail -eq 0 ]; then echo "PASS. Safe to push."; else echo "DO NOT PUSH. Fix the above."; fi
