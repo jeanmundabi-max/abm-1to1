@@ -3,13 +3,20 @@
 Finished runs, with every artefact they produced. These exist so you can judge the work rather
 than read a claim about it.
 
-| Run | Accounts | What is here |
+| Run | Target companies | What is here |
 |---|---|---|
-| [serval](serval/) | 7 | Seven landing pages, seven ad cards, the handover, and the run log including what was rebuilt and why |
+| [serval](serval/) | 7 | Wayfair, Chewy, Carvana, Docusign, Zoom, DoorDash, Riot Games. The most recently built and the most thoroughly checked |
+| [elevenlabs](elevenlabs/) | 6 | BT, Monzo, British Gas, Admiral, easyJet, HMRC. Hero films, two ad crops each, and one disclosed invented figure per page |
+| [wyn](wyn/) | 4 | HMRC, Home Office, MHCLG, UKHSA. Public sector, every figure from a statutory publication duty |
+| [revolut](revolut/) | 3 | Hays, Currys, Renishaw. The pages that refuse to compute the number and hand the reader two sliders instead |
 
-Three more runs (WYN, ElevenLabs, Revolut) are being audited one at a time and will be added
-separately. Each has to clear the same checks before it goes in: every page carries its
-disclosure, no figure is unsourced, no live account identifier appears anywhere.
+**20 target companies across 4 advertisers.** None of the four advertisers commissioned any of
+this, and none of the twenty target companies was ever contacted. Every page says so in its own
+footer.
+
+Each run cleared the same checks before it went in: every page carries its disclosure, no figure
+is unsourced, no live account identifier appears anywhere, and every page passes the repository's
+own quality gate. `verify.sh` at the root re-runs those checks in one command.
 
 ## Why you cannot click through to a real LinkedIn ad
 

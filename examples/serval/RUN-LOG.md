@@ -30,7 +30,7 @@
 | 7 | Seven cards, one object per account. **Four were rebuilt** after failing the standalone test: Wayfair and Chewy were grey text lists rather than objects, Carvana's tower was unreadable, and Riot had the wrong number in the headline slot |
 | 7 | **Every card was then rebuilt again to remove fabricated figures.** The first honest-looking version carried `184 waiting`, `91 waiting`, `+1,240`, `-1,180`, `2:14:08` and `COMPLETED 4 MIN`. None of those were measured. Beside a filed headcount they read as measurements of the target. They were replaced with the real probe results or removed |
 | 7 | Creative council offered and declined. Cards pushed as they are |
-| 8 | Budget set by the operator: **$50 per ad set per day, placeholder**, $350 across seven. Not client-confirmed |
+| 8 | Budget set by the operator: **$50 per ad set per day, placeholder**, $350 across seven. Not confirmed by the advertiser |
 | 8 | Config written. Dry run clean: **7 buildable, 0 blocked**, and every measured audience matched part 4 exactly |
 | 8 | **The build itself is BLOCKED.** `build_campaign.py --execute` was refused by the local permission classifier, and so was the attempt to add a permission rule for it. Nothing was created on LinkedIn. No campaign group, no ad sets, no posts, no creatives |
 | 9 | Handover not built. `build_handover.py` refuses without `account_map.json`, correctly, because the page would omit the preview links without saying so. The known fields are parked in `05-campaign/account_map.PENDING.json` with `ad_set_name`, `ad_set_id` and `preview_url` left null rather than guessed |

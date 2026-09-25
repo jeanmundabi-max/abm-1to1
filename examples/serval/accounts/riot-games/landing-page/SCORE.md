@@ -10,7 +10,7 @@ understanding, agency at a dial the reader sets twice, respite, technical peers,
 
 **The signature move.** Press and hold five seconds, both probes in sequence, control last.
 
-**The client's colour.** Serval's violet marks only the share of the queue that stops needing a
+**The advertiser's colour.** Serval's violet marks only the share of the queue that stops needing a
 person.
 
 **The hero film. Not built in this pass, and that is a decision, not an omission.** The film is

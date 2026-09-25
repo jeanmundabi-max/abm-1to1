@@ -44,8 +44,8 @@ Coded in the page off `--sc-p` and a pointer handler. The engine is not touched.
 **Gate result: the registry is empty, so this build clears trivially.**
 
 **One row is registered for the campaign, not three.** The three pages share a grammar and a
-signature move by design, because they are one campaign for one client. The gate exists to stop
-a studio repeating itself across clients, and registering three near-identical rows would make
+signature move by design, because they are one campaign for one advertiser. The gate exists to stop
+a studio repeating itself across advertisers, and registering three near-identical rows would make
 the registry lie about how much variety exists. Hays, Currys and Hays differ in world,
 content and act copy, not in grammar.
 

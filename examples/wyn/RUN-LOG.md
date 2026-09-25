@@ -59,7 +59,7 @@ WYN URLs were still serving the 52KB single-pass generator pages from 21 August,
 And the other three accounts had no new build at all.
 
 **`07-pages/build_account.py`.** The HMRC page's grammar, chrome, act shape, close and signature
-move, carried across unchanged, because four pages for one client are one system. What differs is
+move, carried across unchanged, because four pages for one advertiser are one system. What differs is
 the world, the evidence and the copy, and here that is not decoration: the four departments have
 genuinely different registers.
 

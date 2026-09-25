@@ -2,7 +2,7 @@
 
 ## Page grammar: THE WALLBOARD
 
-Chosen over split stage (Hays), ruled ledger (HMRC), the transcript (the deleted dry run), printed chapters, live surface, worldflight, brutalist wall and gallery. The page is the object from the buyer's own day, the complaints return Admiral publishes under the FCA's rules: a dark instrument carrying only published tiles, with one tile in the client's colour that does not exist yet. Per `sops/08b`, the hook is the object, not a sentence.
+Chosen over split stage (Hays), ruled ledger (HMRC), the transcript (the deleted dry run), printed chapters, live surface, worldflight, brutalist wall and gallery. The page is the object from the buyer's own day, the complaints return Admiral publishes under the FCA's rules: a dark instrument carrying only published tiles, with one tile in the advertiser's colour that does not exist yet. Per `sops/08b`, the hook is the object, not a sentence.
 
 - **Nav:** none. A fixed strip of the board along the top carries three of their tiles and the dark Answered tile, which lights when the reader reaches the ask.
 - **Hero:** the board alive (the film) beside the promise.

@@ -11,7 +11,7 @@ lines of typing.
 **The signature move.** Press and hold five seconds, both probes in sequence, control last.
 `pointer-events:auto` forced on the wrap, transparent rect over the whole SVG.
 
-**The client's colour.** Serval's violet marks the share of the queue that would stop needing a
+**The advertiser's colour.** Serval's violet marks the share of the queue that would stop needing a
 person, and nothing else on the page uses it.
 
 **The hero film. Not built in this pass, and that is a decision, not an omission.** The live

@@ -6,7 +6,7 @@ Chosen over filmic one-shot, split stage, printed chapters, live surface, worldf
 brutalist wall and gallery.
 
 Why the other seven lost. **Split stage** is the Revolut grammar and reusing it would make the
-second client look like the first, which is the exact failure this build exists to correct.
+second advertiser look like the first, which is the exact failure this build exists to correct.
 **Filmic one-shot** is what every prior build reached for. **Live surface** implies data the
 operator does not have. **Worldflight** needs generated footage and a budget, and this audience
 would read the spend as the thing they are being sold. **Printed chapters** was the near miss and

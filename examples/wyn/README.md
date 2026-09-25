@@ -1,6 +1,6 @@
-# WYN, four government departments
+# WYN, four target companies, all UK government departments
 
-**The client:** WYN Procurement helps organisations pay less for software they have already
+**The advertiser:** WYN Procurement helps organisations pay less for software they have already
 bought, by comparing what a supplier charges them against what the same supplier charges
 other buyers.
 

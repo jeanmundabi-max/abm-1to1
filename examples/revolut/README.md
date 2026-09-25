@@ -1,6 +1,6 @@
-# Revolut Business, three listed UK companies
+# Revolut Business, three target companies, all UK listed
 
-**The client:** Revolut Business sells currency exchange at the interbank rate to companies
+**The advertiser:** Revolut Business sells currency exchange at the interbank rate to companies
 paying a spread to their bank.
 
 **The run:** layer 2, a demonstration. Built as drafts, never activated. Five accounts were

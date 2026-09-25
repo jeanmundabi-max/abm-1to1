@@ -3,9 +3,9 @@
 ## Page grammar: RULED LEDGER
 
 **Shared with the HMRC build on purpose, and that is the whole of the reason.** Four pages for
-one client are one system, not four studios. The Revolut run made the same call and logged one
+one advertiser are one system, not four studios. The Revolut run made the same call and logged one
 fingerprint row for three accounts. A campaign whose four pages used four grammars would be
-showing off a range nobody asked for and would make the client look like four different
+showing off a range nobody asked for and would make the advertiser look like four different
 suppliers.
 
 So the fingerprint position of this build is stated plainly rather than inflated:
@@ -19,7 +19,7 @@ So the fingerprint position of this build is stated plainly rather than inflated
 | Close | The collapse, divider retires | The convergence | yes |
 | Signature | Drag the spread, never resolves | The held verdict, never takes a side | yes |
 
-**6 of 6 against the other client. 0 of 6 against HMRC, by design.** What differs from HMRC is
+**6 of 6 against the other account. 0 of 6 against HMRC, by design.** What differs from HMRC is
 the layer the skeleton says is not optional: the world drawn, the evidence, and the copy. This
 register is not HMRC's register and the finding in it is not HMRC's finding.
 
@@ -58,7 +58,7 @@ earlier WYN page declared seven acts and implemented none.
 ## The film
 
 THE RAIL, 30 seconds, silent, white ground, one beat every four seconds. Same film as HMRC's,
-because four films for one client are one campaign. What it carries is this account's own
+because four films for one advertiser are one campaign. What it carries is this account's own
 published figures, read from `contracts_live.csv` by `build_account.py` and never typed by hand.
 
 - The rail draws, ticks land on it, the ticks merge, the figures arrive, the rail splits at 16s.

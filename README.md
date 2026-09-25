@@ -97,10 +97,19 @@ for. It compares the config templates byte for byte, so an untouched file never 
 - **The guard fails closed.** A write to any ad account not on your own allowlist is refused
   before anything is created, and a missing allowlist is a refusal rather than a default.
 
-## See a finished run
+## See four finished runs
 
-**[examples/serval](examples/serval/)** · seven accounts, seven pages, seven ads, the handover,
-and the run log including what was rebuilt and why.
+**[20 target companies across 4 advertisers](examples/)**, every artefact each run produced.
+
+| Run | Target companies | |
+|---|---|---|
+| [serval](examples/serval/) | 7 | Wayfair, Chewy, Carvana, Docusign, Zoom, DoorDash, Riot Games |
+| [elevenlabs](examples/elevenlabs/) | 6 | BT, Monzo, British Gas, Admiral, easyJet, HMRC |
+| [wyn](examples/wyn/) | 4 | HMRC, Home Office, MHCLG, UKHSA |
+| [revolut](examples/revolut/) | 3 | Hays, Currys, Renishaw |
+
+Every page is live and clickable, not a screenshot. None of the four advertisers commissioned
+this and none of the twenty target companies was contacted.
 
 The run log is the part worth reading. It records a date taken from a layoff tracker and
 rejected in favour of the primary source, four ad cards rebuilt for failing the standalone test,

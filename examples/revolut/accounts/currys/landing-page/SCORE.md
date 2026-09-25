@@ -44,8 +44,8 @@ Coded in the page off `--sc-p` and a pointer handler. The engine is not touched.
 **Gate result: the registry is empty, so this build clears trivially.**
 
 **One row is registered for the campaign, not three.** The three pages share a grammar and a
-signature move by design, because they are one campaign for one client. The gate exists to stop
-a studio repeating itself across clients, and registering three near-identical rows would make
+signature move by design, because they are one campaign for one advertiser. The gate exists to stop
+a studio repeating itself across advertisers, and registering three near-identical rows would make
 the registry lie about how much variety exists. Currys, Currys and Hays differ in world,
 content and act copy, not in grammar.
 
@@ -83,9 +83,9 @@ the build rather than shipping a page that still cites another company.
 
 ### What is shared with the other two, deliberately
 
-Grammar, chrome, hero device, act shape, close and signature move. Three pages for one client
+Grammar, chrome, hero device, act shape, close and signature move. Three pages for one advertiser
 are one system, and `FINGERPRINTS.md` carries a single row for all three. A campaign whose three
-pages used three grammars would make one client look like three suppliers.
+pages used three grammars would make one advertiser look like three suppliers.
 
 ### What is this account's alone
 

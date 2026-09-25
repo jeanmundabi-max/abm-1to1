@@ -18,7 +18,7 @@ in sequence with the control at the end. Placed at the point of most doubt, whic
 whether any of this is really about Wayfair. `pointer-events:auto` is forced on the wrap
 and a transparent rect covers the whole SVG, so the press lands anywhere on the ring.
 
-**The client's colour.** Serval's violet #703fdc marks one thing only: the share of the
+**The advertiser's colour.** Serval's violet #703fdc marks one thing only: the share of the
 queue that would stop needing a person. Wayfair's own purple #7b189f is the ground it sits
 in. The bar figure is the argument rendered in the two colours.
 

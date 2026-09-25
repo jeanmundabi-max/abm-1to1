@@ -12,7 +12,7 @@ yes that costs ten lines of typing.
 with the control at the end. `pointer-events:auto` is forced on the wrap and a transparent rect
 covers the whole SVG, so the press lands anywhere on the ring.
 
-**The client's colour.** Serval's violet marks the share of the queue that would stop needing a
+**The advertiser's colour.** Serval's violet marks the share of the queue that would stop needing a
 person. Nothing else on the page uses it.
 
 **The hero film. Not built in this pass, and that is a decision, not an omission.** The first

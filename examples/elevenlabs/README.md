@@ -1,6 +1,6 @@
-# ElevenLabs, six UK organisations
+# ElevenLabs, six target companies
 
-**The client:** ElevenLabs sells voice agents that answer a phone line or a support thread.
+**The advertiser:** ElevenLabs sells voice agents that answer a phone line or a support thread.
 
 **The run:** layer 2, a demonstration. Built as drafts, never activated. This is the rebuild
 of 23 September 2026, after a dry run twelve days earlier was rejected. The research and the

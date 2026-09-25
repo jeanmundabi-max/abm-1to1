@@ -11,7 +11,7 @@ it does not go in.
 
 - **Leg 1.** Layer 2, demonstration, ads only. Product surface picked by research: FX and
   treasury (multi-currency accounts, interbank exchange, FX Forwards) on the Enterprise plan.
-  `00-inputs/CLIENT-PROFILE.md`.
+  `00-inputs/ADVERTISER-PROFILE.md`.
 - **Revolut blocks curl and WebFetch.** Both get HTTP 403 and an 873KB page titled *"Just a
   quick security check | Revolut"*. Real Chrome over CDP passed free, first try, no captcha.
   Script kept at `scratchpad/cdp_fetch.py`.
@@ -111,7 +111,7 @@ DRAFT status confirmed **against the API**, not against this folder.
    from "wrong" gets ignored.
 
 **Still failing, and stated rather than hidden:** UTMs return HTTP 500 on all three, so click
-attribution is not wired. Conversions are not attached and cannot be until the client says
+attribution is not wired. Conversions are not attached and cannot be until the advertiser says
 what counts as a result.
 
 **`build_handover.py` is not reusable.** It is the WYN procurement handover with a config
@@ -257,7 +257,7 @@ every property**, so Layer 2 was not scored.
 **The structural finding, and it belongs in the skill:** the layer 2 rule *"never write a
 commercial offer for layer 2"* and the cold-traffic rule *"a cold page must carry a Specific,
 Finite, Definite, Safe offer"* **cannot both be satisfied by us.** A layer 2 build cannot
-produce a cold-traffic page unless the client supplies the offer. The skill already has the
+produce a cold-traffic page unless the advertiser supplies the offer. The skill already has the
 mechanism, a clearly marked specimen slot, and this page did not use one. **Say it at intake,
 not at the end.**
 
@@ -279,7 +279,7 @@ Six changes, all from `04-pages/PAGE-ROAST.md`.
 4. **The proof is enterprise only, and it is on film.** Revolut publish video case studies and
    the right one was already in our evidence: **Lyca Mobile, telecoms, enterprise, 22
    countries, and their own results copy says the company "significantly reduced its reliance
-   on third-party currency exchange providers".** That is the FX proof in the client's own
+   on third-party currency exchange providers".** That is the FX proof in the advertiser's own
    words. WeRoad and ThePower Business School are dropped: at Currys' size they read as
    counter-proof.
 5. **The customer video sits in the Proof section, far below the hero.** Jean's constraint,
@@ -407,7 +407,7 @@ The operator gave the confirmation in writing, so the sequence I had promised ra
 `SUPERSEDED-CREATIVES.txt` and `to_delete.json` removed, because a list of things that no longer
 exist is a file that will mislead somebody later.
 
-**Two blockers remain and both are the client's:** the daily budget is still a placeholder, and
+**Two blockers remain and both are the advertiser's:** the daily budget is still a placeholder, and
 conversions are still unattached. Activation is a separate human action and this run never takes it.
 
 ---
@@ -437,7 +437,7 @@ the image return 422, create only. Three ad sets rewritten, creative count still
 This changes the build order: settle the image and headline before the first push, iterate copy free.
 
 **The handover got section 03**, the narrowing funnel per account plus a nine-row decision ledger
-with what else was on the table and whose call it is now. No facet URN reaches the client page.
+with what else was on the table and whose call it is now. No facet URN reaches the advertiser's page.
 
 **Live:** Renishaw AD_SET_ID, Currys AD_SET_ID, Hays AD_SET_ID. All DRAFT, one creative each,
 £50/day placeholder, run schedule set, nothing spent.
@@ -461,7 +461,7 @@ then swept and the sweep is asserted on too, because the proof section names the
 shared sentence that no region anchor would have caught.
 
 **What is shared, deliberately.** Grammar, chrome, hero device, act shape, close, signature move.
-`FINGERPRINTS.md` still carries one row for all three. Three pages for one client are one system.
+`FINGERPRINTS.md` still carries one row for all three. Three pages for one advertiser are one system.
 
 **What is each account's alone**, which is the layer `the-skeleton.md` says is not optional:
 

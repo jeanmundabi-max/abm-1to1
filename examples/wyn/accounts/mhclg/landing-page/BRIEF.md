@@ -1,6 +1,6 @@
 # BRIEF — WYN × the Ministry of Housing, Communities and Local Government
 
-**Self-authored, not interviewed.** The client for this run is the operator, and the account is a
+**Self-authored, not interviewed.** The advertiser for this run is the operator, and the account is a
 public body that was never asked. Everything below is answered in WYN's voice from what WYN and
 the Ministry of Housing, Communities and Local Government both publish, and it is marked so that nobody later reads it as a transcript.
 

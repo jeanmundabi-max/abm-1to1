@@ -1,6 +1,6 @@
-# Serval, seven accounts
+# Serval, seven target companies
 
-**The client:** [Serval](https://www.serval.com/) sells AI agents that close employee IT
+**The advertiser:** [Serval](https://www.serval.com/) sells AI agents that close employee IT
 requests end to end, inside Slack, instead of routing them to a person. Founded 2024, and by
 its own published customer list it replaces ServiceNow and Jira Service Management.
 
@@ -53,7 +53,7 @@ not about those companies.
 ## What else is here
 
 - [The handover](handover.html) · 4,500 words. How the list was built, the controls, every
-  decision and why it went that way, and what is not done. Written for the client.
+  decision and why it went that way, and what is not done. Written for the advertiser.
 - [The run log](RUN-LOG.md) · what was rebuilt and why. Includes a layoff-tracker date rejected
   in favour of the primary source, four ad cards rebuilt for failing the standalone test, and
   **every card rebuilt a second time to strip figures that had been invented**.
