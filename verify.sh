@@ -50,6 +50,12 @@ for f in examples/*/accounts/*/landing-page/index.html; do
                | sed -E 's/.*="([^"]+)"/\1/' | sort -u); do
     if [ ! -f "$d/$ref" ]; then
       printf '  FAIL  %s references %s, which is not there\n' "$f" "$ref"; missing=1; fail=1
+    # On disk is not enough. A gitignore rule can silently drop a file that the page needs,
+    # and the working tree looks perfect while the published page 404s. Ask git, not the disk.
+    elif git ls-files --error-unmatch "$d/$ref" >/dev/null 2>&1; then :
+    else
+      printf '  FAIL  %s is on disk but NOT tracked by git (check .gitignore)\n' "$d/$ref"
+      missing=1; fail=1
     fi
   done
 done

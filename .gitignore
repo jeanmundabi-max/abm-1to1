@@ -12,6 +12,9 @@ runs/
 # The ad account allowlist is real account ids. It lives in ~/.config/abm-1to1/, never here.
 ad_accounts.json
 
-# Render output
+# Render output. The films inside examples/ are deliverables and DO ship: an example page
+# whose hero film 404s is a broken page, and the working tree gives no sign of it because
+# the file is right there on disk.
 scripts/out/
 *.mp4
+!examples/**/*.mp4
