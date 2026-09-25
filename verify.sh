@@ -31,14 +31,15 @@ check "no invented ticket ids"    'INC-[0-9]{4,}'
 check "no third-party bylines"    'By Ivan Falco'
 
 # Every example page still has to clear the quality gate and carry its disclosure.
+nodisc=0
 for d in examples/*/accounts/*/landing-page; do
   [ -d "$d" ] || continue
   # case-insensitive, and on a single word, because the sentence wraps in the raw HTML
   if ! grep -qi "affiliated" "$d/index.html" 2>/dev/null; then
-    printf '  FAIL  missing disclosure: %s\n' "$d"; fail=1
+    printf '  FAIL  missing disclosure: %s\n' "$d"; nodisc=1; fail=1
   fi
 done
-[ $fail -eq 0 ] && printf '  ok    every example page carries its disclosure\n'
+[ $nodisc -eq 0 ] && printf '  ok    every example page carries its disclosure\n'
 
 # Every local file a page asks for has to be beside it. A WYN page shipped without its
 # scrollcraft.js once: the page still rendered, and every interactive element was dead.
@@ -60,6 +61,23 @@ for f in examples/*/accounts/*/landing-page/index.html; do
   done
 done
 [ $missing -eq 0 ] && printf '  ok    every page has the files it asks for\n'
+
+# No committee table names a real individual. These pages are unsolicited demonstrations
+# published to the open web, and nobody on them asked to be there. Jean's rule is seats, not
+# people. This is checked STRUCTURALLY rather than against a list of names, because the first
+# sweep was a hardcoded list of four and it missed fifteen on another run.
+named=0
+for f in examples/*/accounts/*/landing-page/index.html examples/*/handover.html; do
+  [ -f "$f" ] || continue
+  bad=$(grep -oE '<tr><td><b>[^<]{4,70}</b><br><span class="cap">[^<]{2,60}</span>' "$f" \
+        | sed -E 's/.*<span class="cap">([^<]*)<.*/\1/' \
+        | grep -vxE 'open seat|named by role, not by person' || true)
+  if [ -n "$bad" ]; then
+    printf '  FAIL  %s names a person in a committee table: %s\n' "$f" "$(echo "$bad" | tr '\n' ';')"
+    named=1; fail=1
+  fi
+done
+[ $named -eq 0 ] && printf '  ok    no committee table names an individual\n'
 
 echo
 if [ $fail -eq 0 ]; then echo "PASS. Safe to push."; else echo "DO NOT PUSH. Fix the above."; fi
