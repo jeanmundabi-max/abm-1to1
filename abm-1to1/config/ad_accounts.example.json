@@ -1,0 +1,9 @@
+{
+  "_note": "Copy this to ~/.config/abm-1to1/ad_accounts.json and fill it in. It is never committed. 'allowed' is the ONLY account this toolchain may write to; adding to it is a deliberate act. 'known_foreign' is optional and exists so a refusal can say WHY an id was rejected rather than just 'not allowed' - put any account your token can see but must never touch.",
+  "allowed": {
+    "000000000": "Your own ad account, the only one this may write to"
+  },
+  "known_foreign": {
+    "111111111": "An account your token can see but does not own"
+  }
+}

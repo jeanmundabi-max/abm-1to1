@@ -1,0 +1,493 @@
+<!doctype html>
+<html lang="en"><head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Carvana took the human out of buying a car</title>
+<meta name="description" content="Built for the person at Carvana who owns the internal ticket queue.">
+<style>
+:root{
+  --ink:#080808; --paper:#f8f9fc; --violet:#703fdc; --violet-soft:#916cee; --lav:#ded3ff;
+  --wf:#7b189f; --wf-deep:#3d0b4f; --berry:#990e35;
+  --line:rgba(222,211,255,.18); --muted:#9a93ad; --sc-p:0;
+  --mono:ui-monospace,"SF Mono",Menlo,monospace;
+  --serif:"Iowan Old Style","Palatino Linotype",Palatino,Georgia,serif;
+  --sans:-apple-system,BlinkMacSystemFont,"Segoe UI",Inter,Helvetica,Arial,sans-serif;
+}
+*{box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--ink);color:#efedf5;font-family:var(--sans);
+  font-size:17px;line-height:1.62;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+.wrap{max-width:1080px;margin:0 auto;padding:0 22px}
+section:not(.hero) .wrap>*{max-width:880px}
+.hero{padding:54px 0 64px}
+.heroGrid{display:grid;gap:34px;align-items:start}
+.heroGrid{display:flex;flex-direction:column;gap:26px}
+.heroL{order:1}.heroR{order:2}.heroNotes{order:3}
+.heroNotes p{margin-bottom:13px}
+@media(max-width:979px){.hero .lead{font-size:18px;line-height:1.5}.hero h1{font-size:clamp(30px,7.6vw,42px)}}
+@media(min-width:980px){.heroGrid{display:grid;grid-template-columns:1.06fr .94fr;
+  grid-template-areas:"l r" "n r";align-content:start;gap:10px 44px}
+  .heroL{grid-area:l}.heroR{grid-area:r}.heroNotes{grid-area:n;padding-top:14px}}
+.heroL h1{margin-bottom:16px}
+.panel{background:#0c0b11;border:1px solid var(--line);padding:20px}
+.panel .ph{font-family:var(--mono);font-size:10.5px;letter-spacing:.17em;text-transform:uppercase;
+  color:var(--violet-soft);border-bottom:1px solid var(--line);padding-bottom:10px;margin-bottom:14px;
+  display:flex;justify-content:space-between;gap:10px}
+.ln{font-family:var(--mono);font-size:12.5px;line-height:1.85;color:#bdb6cf;display:flex;gap:10px}
+.ln b{color:#fff;font-weight:400;flex:0 0 auto}
+.ln .ok{color:#7ee0a8}.ln .no{color:#e08b8b}
+.stack{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin-top:18px}
+.stack>div{background:#0f0e15;padding:13px 16px;display:flex;justify-content:space-between;gap:12px;align-items:baseline}
+.stack .n{font-family:var(--mono);font-size:22px;color:#fff}
+.stack .l{font-size:12.5px;color:var(--muted);text-align:right;max-width:23ch}
+section{padding:66px 0;border-top:1px solid var(--line);position:relative}
+section:first-of-type{border-top:0}
+h1,h2,h3{font-family:var(--serif);font-weight:600;letter-spacing:-.015em;line-height:1.12;margin:0 0 18px}
+h1{font-size:clamp(33px,5.1vw,56px)}
+h2{font-size:clamp(25px,4.2vw,38px)}
+h3{font-size:19px;font-family:var(--sans);letter-spacing:.01em}
+p{margin:0 0 17px;max-width:66ch}
+.kick{font-family:var(--mono);font-size:11px;letter-spacing:.20em;text-transform:uppercase;
+  color:var(--violet-soft);margin:0 0 18px;display:flex;gap:10px;align-items:center;white-space:nowrap}
+.kick::before{content:"";width:26px;height:1px;background:var(--violet)}
+.lead{font-size:20px;color:#d8d4e4}
+.dim{color:var(--muted)}
+.v{color:var(--violet-soft)}
+mark{background:linear-gradient(transparent 58%,rgba(112,63,220,.42) 58%);color:inherit}
+.big{font-family:var(--mono);font-size:clamp(46px,11vw,104px);line-height:.92;
+  letter-spacing:-.045em;color:#fff;margin:6px 0 4px}
+.unit{font-family:var(--mono);font-size:12px;letter-spacing:.16em;text-transform:uppercase;color:var(--muted)}
+.rail{display:grid;gap:1px;background:var(--line);border:1px solid var(--line);margin:30px 0}
+.rail>div{background:#0c0b11;padding:18px 20px}
+.rail .n{font-family:var(--mono);font-size:27px;color:#fff;letter-spacing:-.02em}
+.rail .l{font-size:13px;color:var(--muted);margin-top:4px}
+@media(min-width:620px){.rail{grid-template-columns:repeat(3,1fr)}}
+blockquote{margin:0;padding:22px 24px;background:#0c0b11;border-left:2px solid var(--violet)}
+blockquote p{font-family:var(--serif);font-size:19px;color:#f2f0f8;margin:0 0 12px}
+blockquote cite{font-style:normal;font-family:var(--mono);font-size:11.5px;
+  letter-spacing:.09em;text-transform:uppercase;color:var(--violet-soft);display:block}
+.quotes{display:grid;gap:14px}
+details{border-top:1px solid var(--line);padding:15px 0}
+details summary{cursor:pointer;font-weight:600;list-style:none;display:flex;gap:14px;align-items:flex-start}
+details summary::-webkit-details-marker{display:none}
+details summary::before{content:"+";font-family:var(--mono);color:var(--violet);flex:0 0 14px}
+details[open] summary::before{content:"\2013"}
+details p{margin:13px 0 2px 28px;color:#cdc8dc;font-size:16px}
+table{width:100%;border-collapse:collapse;margin:24px 0;font-size:15px}
+th,td{text-align:left;padding:12px 14px;border-bottom:1px solid var(--line);vertical-align:top}
+th{font-family:var(--mono);font-size:10.5px;letter-spacing:.15em;text-transform:uppercase;color:var(--violet-soft)}
+.holdwrap,.holdwrap *{pointer-events:auto!important}
+.hold{display:block;margin:28px auto;max-width:330px;touch-action:none;cursor:pointer}
+.holdmsg{text-align:center;font-family:var(--mono);font-size:12.5px;color:var(--lav);
+  min-height:3.2em;letter-spacing:.04em;padding:0 10px}
+.dial{width:100%;margin:22px 0 6px;accent-color:var(--violet);height:30px}
+.calc{background:#0c0b11;border:1px solid var(--line);padding:24px}
+.calcout{display:grid;gap:1px;background:var(--line);margin-top:20px}
+.calcout>div{background:#0f0e15;padding:15px 18px;display:flex;justify-content:space-between;
+  align-items:baseline;gap:12px;flex-wrap:wrap}
+.calcout b{font-family:var(--mono);font-size:25px;color:#fff;font-weight:400}
+.calcout span{font-size:14px;color:var(--muted);max-width:40ch}
+.routes{display:grid;gap:14px;margin:26px 0}
+@media(min-width:620px){.routes{grid-template-columns:1fr 1fr}}
+.rt{background:#0c0b11;border:1px solid var(--line);padding:22px;display:flex;flex-direction:column}
+.rt h3{color:#fff;margin-bottom:8px}
+.rt p{font-size:15px;color:#cdc8dc;flex:1}
+.rt .cost{font-family:var(--mono);font-size:11px;letter-spacing:.12em;text-transform:uppercase;
+  color:var(--violet-soft);margin-top:14px}
+form{background:#0c0b11;border:1px solid var(--violet);padding:26px;margin:28px 0}
+input[type=email]{width:100%;padding:15px;background:#08070c;border:1px solid var(--line);
+  color:#fff;font-size:16px;font-family:var(--sans);margin:12px 0}
+button{width:100%;padding:16px;background:var(--violet);color:#fff;border:0;font-size:16px;
+  font-weight:600;cursor:pointer;font-family:var(--sans)}
+button:hover{background:var(--violet-soft)}
+.bar{position:fixed;left:0;right:0;top:0;height:2px;background:var(--violet);
+  transform-origin:0 50%;transform:scaleX(var(--sc-p));z-index:60}
+.probe{font-family:var(--mono);font-size:13px;background:#08070c;border:1px solid var(--line);
+  padding:16px 18px;margin:16px 0;overflow-x:auto;white-space:pre;color:#bdb6cf}
+.probe .ok{color:#7ee0a8}.probe .no{color:#e08b8b}.probe .q{color:var(--violet-soft)}
+footer{padding:60px 0 90px;border-top:1px solid var(--line);color:var(--muted);font-size:13px}
+footer p{max-width:74ch}
+[data-sc-cue]{opacity:0;transform:translateY(18px);transition:opacity .7s ease,transform .7s ease}
+[data-sc-cue].lit{opacity:1;transform:none}
+.respite{padding:112px 0;text-align:center}
+.respite p{font-family:var(--serif);font-size:clamp(21px,3.6vw,30px);color:#a79ec2;
+  max-width:24ch;margin:0 auto;line-height:1.4}
+@media(max-width:620px){section{padding:58px 0}.wrap{padding:0 16px}}
+</style></head>
+<body>
+<div class="bar" aria-hidden="true"></div>
+
+<section data-sc-act="1" class="hero"><div class="wrap">
+<p class="kick" data-sc-cue="a">Built for one company</p>
+<div class="heroGrid">
+<div class="heroL">
+<h1>Carvana took the human out of buying a car.<br>Not out of <mark>getting a Google group</mark>.</h1>
+<p class="lead" data-sc-cue="b">A customer can buy a vehicle at two in the morning without speaking to anyone. An employee who needs access to a shared drive files a ticket and waits for a person. Both of those are true at the same company, today.</p>
+</div>
+<div class="heroNotes">
+<p class="dim" data-sc-cue="d">Read <span id="readon"></span>. Every figure here comes from a filing or from a request made to a public address, and each one says which. The one number we do not have is left for you to set.</p>
+<p class="dim" data-sc-cue="d" style="font-size:14px">That panel is not a screenshot. Those
+requests were made this morning, and the last one is a name that does not exist, because a check
+that answers for anything proves nothing.</p>
+</div>
+<div class="heroR" data-sc-cue="c">
+<div class="panel">
+<div class="ph"><span>Live, 24 Sep 2026</span><span>2 of 2 answered</span></div>
+<div class="ln"><b>&rarr;</b><span>carvana.service-now.com</span></div>
+<div class="ln"><b class="ok">200</b><span>149.96.36.203 &middot; ServiceNow tenant</span></div>
+<div class="ln"><b>&rarr;</b><span>carvana.atlassian.net/servicedesk</span></div>
+<div class="ln"><b class="ok">303</b><span>&rarr; service desk login &middot; Jira SM</span></div>
+<div class="ln"><b>&rarr;</b><span>qzxnonsense7731.service-now.com</span></div>
+<div class="ln"><b class="no">NX</b><span>the control. A made-up name gets nothing</span></div>
+</div>
+<div class="stack">
+<div><span class="n">23,100</span><span class="l">Full-time and part-time. Form 10-K, 31 Dec 2025</span></div>
+<div><span class="n">2</span><span class="l">Service desks answering today</span></div>
+<div><span class="n">640</span><span class="l">People in IT we can reach at Carvana, LinkedIn, today</span></div>
+<div><span class="n">0</span><span class="l">Of those two desks that finish a request</span></div>
+</div>
+</div>
+</div>
+</div></section>
+
+<section data-sc-act="2"><div class="wrap">
+<p class="kick" data-sc-cue="e">What answered</p>
+<h2>We asked the open internet two questions about you</h2>
+<p>Not a data vendor and not a list. Two requests anyone can make from a laptop, to
+addresses Carvana published by standing them up. Here is exactly what came back, this morning.</p>
+<div class="probe">$ dig +short carvana.service-now.com
+<span class="ok">149.96.36.203</span>          <span class="q">&#8592; a ServiceNow tenant, live</span>
+
+$ curl -I carvana.atlassian.net/servicedesk/customer/portals
+<span class="ok">303</span> &#8594; /servicedesk/customer/user/login   <span class="q">&#8592; a Jira service desk, live</span>
+
+$ dig +short qzxnonsense7731.service-now.com
+<span class="no">NXDOMAIN</span>                 <span class="q">&#8592; the control. A made-up name gets nothing</span></div>
+<p>The third line matters more than the first two. A check that answers for anything proves
+nothing, so we ran a name that does not exist. It came back empty. That is how you know the first
+two lines are about Carvana and not about the way the internet is wired.</p>
+<p>There is a particular irony in the result, and it is not a cheap one. The company that removed
+the salesperson from the largest consumer purchase most people ever make still requires a person
+to grant an employee access to a folder. <span class="v">Same building. Opposite answer.</span></p>
+<div class="holdwrap" data-sc-cue="g">
+<svg class="hold" viewBox="0 0 330 330" role="img" aria-label="Press and hold to run the probes">
+  <rect x="0" y="0" width="330" height="330" fill="transparent"/>
+  <circle cx="165" cy="165" r="128" fill="none" stroke="rgba(222,211,255,.16)" stroke-width="1"/>
+  <circle id="ring" cx="165" cy="165" r="128" fill="none" stroke="#703fdc" stroke-width="3"
+    stroke-dasharray="804" stroke-dashoffset="804" transform="rotate(-90 165 165)" stroke-linecap="round"/>
+  <circle cx="165" cy="165" r="86" fill="none" stroke="rgba(123,24,159,.5)" stroke-width="1"/>
+  <text x="165" y="160" text-anchor="middle" fill="#ded3ff" font-family="ui-monospace,monospace"
+    font-size="12" letter-spacing="2">PRESS</text>
+  <text x="165" y="180" text-anchor="middle" fill="#9a93ad" font-family="ui-monospace,monospace"
+    font-size="11" letter-spacing="2">AND HOLD</text>
+</svg>
+<p class="holdmsg" id="holdmsg">Hold for five seconds. Both desks answer in real time.</p>
+</div>
+</div></section>
+
+<section data-sc-act="2"><div class="wrap">
+<p class="kick" data-sc-cue="h">The number nobody disputes</p>
+<h2>Twenty three thousand people, and a vending machine for cars</h2>
+<p>Carvana's Form 10-K counts over 23,100 full-time and part-time employees as at
+31 December 2025. That figure is filed. It is not an estimate and not a scrape.</p>
+<div class="big">23,100</div><div class="unit">Full-time and part-time employees, Form 10-K, 31 December 2025</div>
+<p style="margin-top:26px">Carvana's entire product argument is that a transaction
+which used to need a human does not need one. The towers, the delivery, the seven day return, the
+financing: all of it exists to take the person out of the middle of a purchase without making the
+purchase worse.</p>
+<p>That argument has never been applied inward. Twenty three thousand people work here, spread
+across hubs, inspection centres, logistics and corporate, and when any of them needs a licence, a
+group, a device or access to a system, the request goes into a queue and waits for a human. The
+company has proved, commercially, at scale, that this is not the only way. Just not for itself.</p>
+</div></section>
+
+<section data-sc-act="3"><div class="wrap">
+<p class="kick" data-sc-cue="i">What that actually costs</p>
+<h2>The one queue where the salesperson never left</h2>
+<p>Four numbers, and where each one comes from. The first is filed, the second and
+third were measured this morning, and the fourth is a property of the category rather than a
+criticism of anyone's product.</p>
+<table>
+<tr><th>What</th><th>How much</th><th>Where it is written</th></tr>
+<tr><td>Employees counted</td><td>over 23,100, full-time and part-time</td><td>Form 10-K, as at 31 December 2025</td></tr>
+<tr><td>IT people reachable at Carvana</td><td>640</td><td>LinkedIn audienceCounts, United States, read 24 September 2026</td></tr>
+<tr><td>Service desks live</td><td>2, ServiceNow and Jira Service Management</td><td>Public DNS and HTTP request, 24 September 2026</td></tr>
+<tr><td>Requests those desks finish without a person</td><td>0</td><td>Neither product is built to. That is not a fault, it is the category</td></tr>
+</table>
+<p>Six hundred and forty is what LinkedIn will let an advertiser reach in your IT
+function in the United States. It is not your headcount and it is not a claim about your team. It
+is the only outside measure available of the size of the group carrying this, and it is small
+against twenty three thousand.</p>
+<p>A workforce spread across physical sites makes it harder rather than easier, because the
+requests arrive from people who are not at a desk and cannot wait until Monday. The arithmetic
+that follows is yours to set, because the number in the middle is the one nobody publishes.</p>
+</div></section>
+
+<section data-sc-act="3"><div class="wrap">
+<p class="kick" data-sc-cue="j">Why it does not get better</p>
+<h2>A ticket system routes. It has never resolved</h2>
+<p>This is worth being plain about, because it is not a criticism of ServiceNow. It does
+exactly what it was built to do.</p>
+<p>A service desk takes a request, puts it in a queue, decides who should see it, and tracks how
+long it sits there. Every one of those verbs is about <em>moving</em> the request. Not one is
+about <em>finishing</em> it. At the end of every well-routed, well-categorised, well-tracked
+ticket there is still a person who has to go and click the thing.</p>
+<p>So the work scales with headcount and the capacity scales with hiring, and when hiring slows,
+the gap does not close. It widens quietly, one request at a time, until the queue is the job.</p>
+<p>Automation inside a ticket system does not fix it either, because the automation is a rule
+somebody has to write, test and maintain, and the person who would write it is the same person
+who is behind on the queue. That is why most of these projects stall after the top three request
+types. The fourth one is never worth the afternoon.</p>
+</div></section>
+
+<section data-sc-act="4"><div class="wrap">
+<p class="kick" data-sc-cue="k">Your number, not ours</p>
+<h2>We will not invent your ticket volume</h2>
+<p>We do not know how many requests Carvana's IT team takes in a month. That number is not
+published anywhere, and guessing it would make everything below it worthless. So the dial is
+yours. Set what you actually see, against a headcount that is filed.</p>
+<div class="calc" data-sc-cue="l">
+  <label for="rpm" class="unit">Requests per employee per month</label>
+  <input class="dial" type="range" id="rpm" min="0.2" max="4" step="0.1" value="1.0">
+  <div class="unit" style="text-align:center">You set: <b id="rpmv" class="v">1.0</b></div>
+  <div class="calcout">
+    <div><b id="o1">0</b><span>Requests a month, against 23,100 people</span></div>
+    <div><b id="o2">0</b><span>Closed with no person, at the 40% one customer reported in their first three weeks</span></div>
+    <div><b id="o3">0</b><span>Closed with no person, at the 50% another reported after switching</span></div>
+    <div><b id="o4">0</b><span>Hours a month back, if a request takes eight minutes of someone's attention</span></div>
+  </div>
+</div>
+<p class="dim" style="margin-top:18px">Arithmetic, and labelled as arithmetic. The headcount is
+filed. The percentages are two named customers' own published figures, quoted below with
+their qualifiers. The eight minutes and the rate per employee are assumptions, and both are yours
+to move.</p>
+<svg viewBox="0 0 640 132" width="100%" height="132" role="img" aria-label="The queue, split" data-sc-cue="m">
+  <rect x="0" y="34" width="640" height="46" fill="#14121c"/>
+  <rect id="barauto" x="0" y="34" width="256" height="46" fill="#703fdc"/>
+  <rect id="barhum" x="256" y="34" width="384" height="46" fill="#7b189f" opacity=".55"/>
+  <text x="8" y="24" fill="#ded3ff" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1.4">NO PERSON NEEDED</text>
+  <text x="632" y="24" text-anchor="end" fill="#c8a8d6" font-family="ui-monospace,monospace" font-size="11" letter-spacing="1.4">STILL A PERSON</text>
+  <text id="lblauto" x="8" y="104" fill="#fff" font-family="ui-monospace,monospace" font-size="15">0</text>
+  <text id="lblhum" x="632" y="104" text-anchor="end" fill="#e4d4ea" font-family="ui-monospace,monospace" font-size="15">0</text>
+</svg>
+</div></section>
+
+<section class="respite" data-sc-act="4"><div class="wrap">
+<p>A folder should not need a meeting.</p>
+</div></section>
+
+<section data-sc-act="5"><div class="wrap">
+<p class="kick" data-sc-cue="n">What changes</p>
+<h2>An agent that finishes the request instead of filing it</h2>
+<p>Serval puts two agents where the queue is. One sits in Slack and takes the request
+from the employee, then goes and does it: creates the group, grants the access, provisions the new
+starter, revokes the leaver. Not a suggested article. The action, completed, with the employee
+told it is done.</p>
+<p>The second is for your team. It builds the automations from a sentence typed in plain English,
+so the fourth request type and the fortieth stop being an afternoon each. That is the part that
+decides whether this keeps going after the first three, and it is the part a rules engine inside a
+ticket system has never solved.</p>
+<p>The shape of it should be familiar. It is the same move Carvana made on the showroom floor,
+pointed at the service desk instead: remove the person from the middle of a transaction that does
+not need judgement, and leave them the ones that do.</p>
+</div></section>
+
+<section data-sc-act="5"><div class="wrap">
+<p class="kick" data-sc-cue="o">People in your seat</p>
+<h2>Three of them moved off ServiceNow, and said so by name</h2>
+<p>These are published on Serval's site, attributed, and reproduced whole. They are the customers'
+sentences, not a summary of them. Where a figure carries a qualifier, the qualifier is here too.</p>
+<div class="quotes">
+<blockquote data-proof><p>&ldquo;Moving from ServiceNow to Serval allowed us to reduce complexity, lower operational costs, and most importantly, reimagine the employee experience through AI and automation.&rdquo;</p><cite>Troy Quigley &middot; Global Head of IT Operations and Employee Experience &middot; Lucid</cite></blockquote>
+<blockquote data-proof><p>&ldquo;We decided to pull off the band-aid and move IT fully onto Serval rather than run it on top of our legacy ITSM.&rdquo;</p><cite>Manu Narayan &middot; CIO &middot; GitLab</cite></blockquote>
+<blockquote data-proof><p>&ldquo;About fifteen minutes into the first call, I was like, okay, wait, this is fundamentally different from how ServiceNow is approaching this.&rdquo;</p><cite>John Henry Boes &middot; Head of IT and Automation &middot; Abridge</cite></blockquote>
+<blockquote data-proof><p>&ldquo;We went from 0 to 40% automation within our first three weeks, and will likely get to 70% in the next few months.&rdquo;</p><cite>Elisa Folden &middot; Senior Manager, Business Technology &middot; SeatGeek</cite></blockquote>
+<blockquote data-proof><p>&ldquo;Once we switched over to Serval, we were able to complete over 50% of our incoming requests automatically.&rdquo;</p><cite>Vernon Man &middot; Head of IT &middot; Perplexity</cite></blockquote>
+<blockquote data-proof><p>&ldquo;I've been in IT for almost 30 years. I don't remember ever watching a technological leap happen right in front of my eyes until that call.&rdquo;</p><cite>PJ Barry &middot; Director of IT Support and Engineering &middot; Cribl</cite></blockquote>
+</div>
+<p style="margin-top:26px">Read the SeatGeek line for exactly what it says. Forty percent in three weeks, and
+seventy percent described as likely, not achieved. That qualifier is theirs and it stays on. None
+of these companies is Carvana's size or shape, and saying so is more useful than implying
+otherwise.</p>
+</div></section>
+
+<section data-sc-act="6"><div class="wrap">
+<p class="kick" data-sc-cue="p">The first three weeks</p>
+<h2>What actually happens, in order</h2>
+<table>
+<tr><th>When</th><th>What happens</th><th>Who is involved from your side</th></tr>
+<tr><td>Week one</td><td>The agent goes into Slack and takes the three request types your team already knows by heart. Nothing is switched off</td><td>One person, part time</td></tr>
+<tr><td>Week two</td><td>Your team writes the next automations in plain English rather than code. The list grows past the top three for the first time</td><td>The service desk lead</td></tr>
+<tr><td>Week three</td><td>A measurable share of the queue closes with no person. SeatGeek published 40% at this point</td><td>Nobody, which is the point</td></tr>
+<tr><td>Then</td><td>Onboarding and offboarding move across, and leaver access stops being a quarterly finding</td><td>IT and security together</td></tr>
+</table>
+<p>ServiceNow keeps running through all of it. Nothing here starts with a migration, and that
+matters, because a migration is the reason this gets postponed to next year every year.</p>
+</div></section>
+
+<section data-sc-act="6"><div class="wrap">
+<p class="kick" data-sc-cue="q">What you would be saying yes to</p>
+<h2>Two ways in, and the small one is not the consolation prize</h2>
+<div class="routes">
+<div class="rt"><h3>Write down your ten</h3>
+<p>List the ten requests your team answers most often. Type them however your team says them
+internally, no export, no connection to anything and no login. You get back the ten automations
+that would close them, written out, and an estimate of what share of your queue those ten
+represent.</p>
+<p class="cost">Costs you: ten lines and no access</p></div>
+<div class="rt"><h3>Watch it run on yours</h3>
+<p>A working session where the agent is pointed at your three most common request types in a
+sandbox and closes them while you watch. No production system is touched and nothing is connected
+until you say so.</p>
+<p class="cost">Costs you: forty minutes and a sandbox</p></div>
+</div>
+<p>The first needs nothing from you but ten lines of typing, and you can do it without telling
+anyone. That is deliberate. The question this page is really asking is whether an agent can close
+your tickets, and the cheapest honest way to answer it is to let you see the automations for the
+ten you already know by heart.</p>
+<p>There is a reason it is built that way round. Every other version of this conversation starts
+by asking you to put time, access or credibility on the table before you have seen anything work.
+You would be agreeing to a demonstration of something you cannot yet evaluate, which is a worse
+deal than it sounds. Ten lines of typing costs nothing you cannot afford to lose, and if what
+comes back is thin, you have learned that for free and nobody inside Carvana needs to hear about
+it. If it is not thin, you have the ten automations whatever you decide next, and the decision
+moves to a room where somebody can check the work.</p>
+</div></section>
+
+<section data-sc-act="7"><div class="wrap">
+<p class="kick" data-sc-cue="r">Who has to agree</p>
+<h2>The committee, and the paragraph to forward to each one</h2>
+<p>This never gets decided by one person. Four seats, what each asks first, and the answer they
+need. Copy the row and send it on.</p>
+<table>
+<tr><th>Seat</th><th>What they ask first</th><th>The answer</th></tr>
+<tr><td>CTO or CIO</td><td>Is this another tool on top of the two we have</td><td>It runs beside them first and replaces them only if it earns it. GitLab moved fully across rather than layering, and said so publicly. Nothing is switched off in week one</td></tr>
+<tr><td>VP or Director of IT Operations</td><td>What happens to our ServiceNow contract</td><td>Nothing, until its renewal. The case is built on the queue that closes without a person, before any licence decision is due</td></tr>
+<tr><td>Director of IT Support and Engineering</td><td>What can the agent actually touch</td><td>Scoped per action, and the sandbox route exists precisely so this is answered by watching rather than by reading a document</td></tr>
+<tr><td>Service desk manager</td><td>Does this land on me to build</td><td>The automations are written in plain English by the person who knows the request, which is you. That is the second agent's only job</td></tr>
+</table>
+</div></section>
+
+<section data-sc-act="7"><div class="wrap">
+<p class="kick" data-sc-cue="s">Everything anyone has asked</p>
+<h2>Including the awkward ones</h2>
+<details><summary>We already have automation in ServiceNow.</summary><p>You do, and it almost certainly covers your top three request types. The question is what happened to the fourth. Rule-based automation stalls where the effort to write the rule exceeds the pain of doing the task once, which is most of the queue.</p></details>
+<details><summary>Our people are spread across hubs and inspection sites, not offices.</summary><p>That is the case for it. A request from someone standing in an inspection bay is exactly the one that cannot wait for a queue, and it is the one an agent in Slack answers in seconds.</p></details>
+<details><summary>We are mid-renewal. Wrong time.</summary><p>It is the right time for the opposite reason. A renewal is when somebody asks what the licences are for, and the only useful answer is a number showing what the queue costs to run.</p></details>
+<details><summary>Compliance will not allow an agent to grant access.</summary><p>Reasonable, and it is the question that should be asked first. Permissions are scoped per action rather than granted wholesale, and the sandbox route exists so your security engineer watches exactly what it does before anything is connected.</p></details>
+<details><summary>What happens when it gets something wrong.</summary><p>It hands the request to a person, the way the queue works now. The failure mode of an agent that cannot finish something is the status quo, not an outage.</p></details>
+<details><summary>We run two desks for a reason. Engineering will not move to IT's tool.</summary><p>They are not being asked to. The agent sits in Slack, where both populations already are, and the request never has to reach either portal.</p></details>
+<details><summary>How is this different from the AI features our current vendor ships.</summary><p>Those suggest an article or draft a reply. The difference is whether the thing gets done. Cribl's director of IT support put the gap at fifteen minutes into a first call, which is his description and not ours.</p></details>
+<details><summary>Our margins are the story right now, not our IT queue.</summary><p>Then the only version of this worth reading is the one with a number on it, which is why the dial above is yours to set rather than ours to assert.</p></details>
+<details><summary>What does it cost.</summary><p>Serval does not publish pricing and we are not going to invent it. That is a question for them, and it is the first thing answered on either route above.</p></details>
+<details><summary>Who built this page.</summary><p>An independent strategist, not Serval and not Carvana. Everything on it is public and sourced, and the footer says exactly what was inferred.</p></details>
+<details><summary>How did you get our headcount.</summary><p>From your own Form 10-K for the year ended 31 December 2025. It is filed with the SEC and anyone can read it.</p></details>
+<details><summary>How did you know which service desks we run.</summary><p>We asked two public addresses that Carvana stood up, and ran a made-up name as a control to prove the answers were about you. The exact commands are printed near the top of this page.</p></details>
+<details><summary>We tried something like this and it did not stick.</summary><p>Most stalls happen at the point where writing the next automation costs more than doing the task by hand. That is the specific thing the second agent is for, and it is the part worth pressure-testing hardest in the working session.</p></details>
+</div></section>
+
+<section data-sc-act="8"><div class="wrap">
+<p class="kick" data-sc-cue="t">The ask</p>
+<h2>Send the ten. Nothing else happens until you do</h2>
+<form id="yes">
+<p style="margin:0 0 4px">Where should the ten automations go back to.</p>
+<input type="email" id="em" placeholder="you@carvana.com" required>
+<button type="submit">Send me the ten automations</button>
+<p class="dim" style="font-size:13px;margin:14px 0 0">No connection to any system. No call booked.
+Ten lines in, ten automations back.</p>
+</form>
+<p id="thanks" class="v" style="display:none">Noted. Reply to the confirmation with your ten and
+they come back written out.</p>
+</div></section>
+
+<footer><div class="wrap">
+<p><strong>Disclosure.</strong> This page was produced independently as a demonstration of
+one-to-one advertising. It is <strong>not affiliated with, endorsed by, or produced on behalf of
+Serval or Carvana</strong>. Names and marks belong to their owners.</p>
+<p>Figures attributed to Carvana are from its own Form 10-K for the year ended 31 December 2025. The service desk observations were made by public DNS and HTTP request on
+24 September 2026, each with a nonsense-name control. Reachable audience figures come from
+LinkedIn's own audienceCounts endpoint, read the same day. Arithmetic derived from any of these
+is labelled as arithmetic on the page.</p>
+<p>Figures attributed to Serval are their own published customer claims, quoted verbatim with
+their original qualifiers, and have not been independently verified. <strong>The offer on this
+page was inferred by the operator</strong> from Serval's published customer results. Serval
+publishes no pricing and no trial terms, and has not been asked to approve this. Any commercial
+terms are theirs alone.</p>
+<p style="margin-top:22px">Strategy and GTM research by Jean Mundabi Fala</p>
+</div></footer>
+<script>
+(function(){
+  var d=new Date();
+  document.getElementById('readon').textContent=d.toLocaleDateString('en-GB',
+    {day:'numeric',month:'long',year:'numeric'});
+
+  var acts=[].slice.call(document.querySelectorAll('[data-sc-act]'));
+  var cues=[].slice.call(document.querySelectorAll('[data-sc-cue]'));
+  function tick(){
+    var h=document.documentElement;
+    var p=h.scrollTop/Math.max(1,(h.scrollHeight-h.clientHeight));
+    h.style.setProperty('--sc-p',p.toFixed(4));
+    var vh=window.innerHeight;
+    cues.forEach(function(c){
+      if(c.getBoundingClientRect().top<vh*0.86){c.classList.add('lit');}
+    });
+    acts.forEach(function(a){
+      var r=a.getBoundingClientRect();
+      var ap=Math.min(1,Math.max(0,(vh-r.top)/(r.height+vh)));
+      a.style.setProperty('--sc-act-p',ap.toFixed(3));
+    });
+  }
+  window.addEventListener('scroll',tick,{passive:true});
+  window.addEventListener('resize',tick);tick();
+
+  var rpm=document.getElementById('rpm'),HEAD=23100;
+  function nf(n){return Math.round(n).toLocaleString('en-US');}
+  function calc(){
+    var r=parseFloat(rpm.value),t=HEAD*r;
+    document.getElementById('rpmv').textContent=r.toFixed(1);
+    document.getElementById('o1').textContent=nf(t);
+    document.getElementById('o2').textContent=nf(t*0.40);
+    document.getElementById('o3').textContent=nf(t*0.50);
+    document.getElementById('o4').textContent=nf(t*0.40*8/60);
+    var w=640*0.40;
+    document.getElementById('barauto').setAttribute('width',w);
+    document.getElementById('barhum').setAttribute('x',w);
+    document.getElementById('barhum').setAttribute('width',640-w);
+    document.getElementById('lblauto').textContent=nf(t*0.40);
+    document.getElementById('lblhum').textContent=nf(t*0.60);
+  }
+  rpm.addEventListener('input',calc);calc();
+
+  var ring=document.getElementById('ring'),msg=document.getElementById('holdmsg'),
+      hold=document.querySelector('.hold'),t0=null,raf=null;
+  var LINES=[
+    'Asking carvana.service-now.com ...',
+    'ServiceNow answered. 149.96.36.203. That desk is live.',
+    'Asking carvana.atlassian.net/servicedesk ...',
+    'Jira Service Management answered. 303 to its login.',
+    'Control: qzxnonsense7731.service-now.com returns nothing.',
+    'Two desks. Both yours. Neither one closes a ticket.'];
+  function step(ts){
+    if(t0===null)t0=ts;
+    var e=Math.min(1,(ts-t0)/5000);
+    ring.setAttribute('stroke-dashoffset',804-804*e);
+    msg.textContent=LINES[Math.min(LINES.length-1,Math.floor(e*LINES.length))];
+    if(e<1)raf=requestAnimationFrame(step);
+  }
+  function start(ev){ev.preventDefault();if(raf)return;t0=null;raf=requestAnimationFrame(step);}
+  function stop(){if(raf){cancelAnimationFrame(raf);raf=null;}
+    ring.setAttribute('stroke-dashoffset',804);
+    msg.textContent='Hold for five seconds. Both desks answer in real time.';}
+  hold.addEventListener('pointerdown',start);
+  hold.addEventListener('pointerup',stop);
+  hold.addEventListener('pointerleave',stop);
+  hold.addEventListener('pointercancel',stop);
+
+  document.getElementById('yes').addEventListener('submit',function(ev){
+    ev.preventDefault();
+    if(!document.getElementById('em').value)return;
+    this.style.display='none';
+    document.getElementById('thanks').style.display='block';
+  });
+})();
+</script>
+</body></html>

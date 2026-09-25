@@ -1,0 +1,15 @@
+{
+ "_note": "AI Ark people search. 0.5 credits per RESULT RETURNED, no emails. Ask before running.",
+ "accounts": {
+  "Account One": "accountone.com",
+  "Account Two": "accounttwo.com"
+ },
+ "titles": [
+  "head of payments",
+  "financial controller",
+  "credit control",
+  "head of billing",
+  "collections manager",
+  "finance operations"
+ ]
+}

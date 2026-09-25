@@ -1,0 +1,6 @@
+{
+ "repo": "<your-github-pages-repo>",
+ "owner": null,
+ "path": "a/{slug}",
+ "_note": "owner null falls back to GITHUB_USERNAME in ~/.config/abm-1to1/secrets.env"
+}

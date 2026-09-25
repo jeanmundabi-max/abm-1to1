@@ -1,0 +1,17 @@
+__pycache__/
+*.pyc
+.env
+.venv/
+node_modules/
+.DS_Store
+
+# Run folders never live in the repo. They hold a client's evidence and a live token's reach.
+runs/
+*/abm-1to1/00-inputs/abm_config*.json
+
+# The ad account allowlist is real account ids. It lives in ~/.config/abm-1to1/, never here.
+ad_accounts.json
+
+# Render output
+scripts/out/
+*.mp4

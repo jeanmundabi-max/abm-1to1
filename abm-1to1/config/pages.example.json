@@ -1,0 +1,26 @@
+{
+ "_note": "Everything client-specific about the pages. The 13-section structure is the method and lives in the skill.",
+ "vendor": {
+  "name": "<Vendor>",
+  "logo": "<vendor>-clean.png",
+  "contact_url": "https://<vendor>.com/contact"
+ },
+ "brand": {
+  "ink": "#0F1521",
+  "blue": "#1A88FF",
+  "wash": "#F4F7FB",
+  "muted": "#5B6675",
+  "rule": "#E3E9F1"
+ },
+ "brand_dir": "../03-creative/brand",
+ "byline": "Built by <you> &middot; Strategy &amp; GTM research",
+ "disclaimer": "This page was produced independently as a demonstration of one-to-one\n advertising. It is not affiliated with, endorsed by, or produced on behalf of {vendor}\n or {account}. Names and marks belong to their owners. Member quotations are from\n publicly published App Store reviews, reproduced verbatim with their source and the date\n read. Figures attributed to {vendor} are their own published claims, quoted with their\n original qualifiers, and have not been independently verified. Figures attributed to {account} are taken from its own published filings and trading updates, with the document\n and date stated. Arithmetic derived from those figures is labelled as arithmetic.",
+ "accounts": {
+  "<account-slug>": {
+   "module": "content_<account>",
+   "name": "<Account Name>",
+   "logo": "<account>-clean.png",
+   "title": "<the page title>"
+  }
+ }
+}

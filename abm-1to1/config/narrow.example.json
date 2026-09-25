@@ -1,0 +1,38 @@
+{
+ "_comment": "One region, the buyer functions, and the juniors to exclude. Two things here were learned the hard way and are worth keeping. FIRST: function:14 is LEGAL, not Operations. Operations is 18. A set that reads [10,14,13] as 'Finance, Operations, IT' is silently targeting lawyers. SECOND: locale stays en_US. LinkedIn injects it into targetingCriteria as interfaceLocales and then validates it, so en_GB returns 400 INVALID_INTERFACE_LOCALE_CODE. The audience's country is carried by profileLocations, not by this field. Derive buyer_functions from the target's own risk-ownership table where they publish one: the function that owns the risk is the function that owns the budget.",
+ "region": [
+  "urn:li:geo:101165590"
+ ],
+ "primary_country": [
+  "urn:li:geo:101165590"
+ ],
+ "buyer_functions": [
+  "urn:li:function:1",
+  "urn:li:function:10",
+  "urn:li:function:13",
+  "urn:li:function:18",
+  "urn:li:function:20"
+ ],
+ "junior_seniorities": [
+  "urn:li:seniority:1",
+  "urn:li:seniority:2",
+  "urn:li:seniority:3"
+ ],
+ "exclude_orgs": [],
+ "light_geo_exclude": [],
+ "buyer_titles": [],
+ "yoe_include": [],
+ "locale": "urn:li:locale:en_US",
+ "band": {
+  "min": 300,
+  "ideal_max": 1000,
+  "hard_max": 1200
+ },
+ "_functions_named": {
+  "1": "Accounting",
+  "10": "Finance",
+  "13": "Information Technology",
+  "18": "Operations",
+  "20": "Program and Project Management"
+ }
+}

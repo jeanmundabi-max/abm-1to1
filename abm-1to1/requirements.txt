@@ -1,0 +1,6 @@
+# Most of this skill runs on the standard library alone: the research, the narrowing,
+# the campaign build and the handover all use urllib and json and nothing else.
+#
+# These two are needed only for the screenshot and contact-sheet steps.
+pillow>=10.0
+playwright>=1.40

@@ -1,0 +1,76 @@
+{
+ "<account-slug>": {
+  "name": "<Account Name>",
+  "b1": {
+   "head": "You wrote it down.",
+   "quoted": true,
+   "lines": [
+    "the new systems will enable us to implement innovations",
+    "such as a member referral programme and new member retention strategies, and"
+   ],
+   "mark": "improve payment failure rates",
+   "tailtext": ".",
+   "cite": "<Account> plc, Annual Report and Accounts <year>, published <date>. Cite the document, not the company."
+  },
+  "b2": {
+   "head": "Your Board dated it.",
+   "sub": "Risk owner, in their own risk table: <b style=\"color:#0F1521\">Chief Technology Officer</b>.",
+   "marker": 0.55,
+   "stops": [
+    [
+     0.0,
+     "13 March 2026",
+     "they stated it, twice",
+     "below"
+    ],
+    [
+     0.55,
+     "",
+     "today",
+     "below"
+    ],
+    [
+     0.61,
+     "9 September 2026",
+     "interims, in {days} days",
+     "above"
+    ],
+    [
+     0.96,
+     "2026",
+     "the programme completes",
+     "right"
+    ]
+   ],
+   "days_to": "2026-09-09"
+  },
+  "b3": {
+   "head": "The new system will not fix this.",
+   "a": [
+    "What you are replacing",
+    "Member management software",
+    "It changes how members are managed."
+   ],
+   "b": [
+    "What decides the month",
+    "A collection that fails",
+    "It happens when the money is not there."
+   ]
+  },
+  "b4": {
+   "head": "One point of it is worth this.",
+   "l1": "<the annualised figure this account publishes>",
+   "to": 0,
+   "dp": 0,
+   "pre": "£",
+   "suf": "m",
+   "l2": "One percentage point of collection failure",
+   "v2": "<one percent of it>",
+   "ratio": 0.01,
+   "arith": [
+    "<unit count> at <unit price> a month. Twelve months. One percent.",
+    "Arithmetic on your own published figures, not a claim about your failure rate."
+   ]
+  }
+ }
+}

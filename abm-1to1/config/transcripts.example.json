@@ -1,0 +1,32 @@
+{
+ "h2": "The thirty second version",
+ "note": "The video is at the top of this page. Everything it says is written out below, with the same timecodes.",
+ "runtime_words": "Thirty two seconds",
+ "content_files": {
+  "<account-slug>": "content_<account>.py"
+ },
+ "beats": {
+  "<account-slug>": [
+   [
+    "00:00",
+    "The line you wrote",
+    "Your <year> annual report says <the sentence they wrote, quoted whole>. It is written in <n> places."
+   ],
+   [
+    "00:07",
+    "Who owns it, and when",
+    "The Board says <the programme> completes in <year> and that <the named risk> rose while it runs. The risk owner is <the seat from their own risk table>. Interim results are <date>."
+   ],
+   [
+    "00:14",
+    "The gap",
+    "<What they are replacing> is one thing. <The problem you fix> is another. Replacing the first does not change the second."
+   ],
+   [
+    "00:23",
+    "The number",
+    "<unit count> at <unit price> a month is roughly <annual total> a year. One point of failure is about <one percent>. Arithmetic on your figures, not a claim about your rate."
+   ]
+  ]
+ }
+}

@@ -1,0 +1,10 @@
+{
+  "name": "abm-1to1-render",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Renderers for the hero film. Only needed if you build films; the pages and ads do not use these.",
+  "dependencies": {
+    "puppeteer-core": "^23.0.0",
+    "ffmpeg-static": "^5.2.0"
+  }
+}
